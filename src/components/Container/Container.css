@@ -1,0 +1,26 @@
+.container {
+  max-width: auto;
+  margin: 0 auto;
+
+  padding-top: 0px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+}
+
+#divMainPageDetail p{
+  font-size: 12px;
+}
+
+#divMainPageDetail ul li{
+  font-size: 12px;
+}
+
+#divMainPageDetail h1{
+  font-weight: bolder;
+}
+
+#MainPageContainer{
+  
+}
+

@@ -1,0 +1,83 @@
+.twidget {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  height: 90px;
+  width: 500px;
+  margin-top: 10px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.061), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.twidget:hover {
+  cursor: pointer;
+}
+
+.restname {
+  flex: 1;
+  padding-top: 14px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.orderitem {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.est-time {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  padding-left: 18px;
+  flex: 3;
+  background-color: #f26c2a;
+  color: white;
+  padding-top: 2px;
+}
+
+.scrollbox {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.scrollbox::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .twidget {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    height: 70px;
+    width: 200px;
+  }
+
+  .restname {
+    display: none;
+  }
+
+  .orderitem {
+    padding-top: 13px;
+    padding-left: 8px;
+  }
+
+  .est-time {
+    position: relative;
+    width: 53px;
+    height: 71px;
+    padding-left: 10px;
+    bottom: 18px;
+  }
+}

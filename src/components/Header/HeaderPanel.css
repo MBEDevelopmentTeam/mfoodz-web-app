@@ -1,0 +1,109 @@
+
+.h-teaser {
+    height: 280px;
+    background-size: cover;
+   
+  }
+  
+  .h_background {
+    position: absolute;
+    display: flex;
+    top: 72px;
+    height: 280px;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    align-items: center;
+    /* background-color:#132328; */
+  }
+
+
+
+ 
+.hf {
+    margin-bottom: 8px;
+}
+
+
+.ha {
+    line-height: 52px;
+}
+
+.h9 {
+    font-size: 36px;
+}
+
+.fl {
+    font-family: UberMove-Medium, sans-serif;
+}
+
+.f4 {
+    color: #FFFFFF;
+}
+  
+.hp{
+    border: 0px;
+    padding-left: 40px;
+    padding-top: 24px;
+    padding-right: 40px;
+    padding-bottom:40px;
+    background-color:#132328 ;
+}
+.hpMainH{
+
+    margin-bottom: 8px;
+    line-height: 52px;
+    font-size: 36px;
+    font-family: UberMove-Medium, sans-serif;
+    color: #FFFFFF;
+}
+
+.hpSubH{
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: UberMoveText-Regular, sans-serif;
+    line-height: 24px;
+}
+
+
+.hpBannerMain{
+    -webkit-box-pack: center;
+    justify-content: center;
+	width: 100%;
+	-webkit-box-align: center;
+    align-items: center;
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+    
+    width: 66.6667%;
+    margin-left: 0%;
+    margin-top: 24px;
+    padding-right: 12px;
+    padding-left: 12px;
+    display: block;
+    flex: none;
+    border: 0px;
+    box-sizing: border-box;
+
+}
+
+.hpBannerIn{
+
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+    
+}
+

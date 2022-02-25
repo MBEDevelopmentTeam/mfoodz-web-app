@@ -1,0 +1,447 @@
+.header {
+  height: 96px;
+  box-shadow: 0 0 16px rgba(38, 38, 38, 0.16);
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: var(--white);
+  border: "none";
+  outline: none;
+}
+
+#sidebarList li {
+  list-style-type: decimal;
+  color: #f36c2a;
+}
+
+.bg-image-profile {
+  background-image: url("../auth/Images/Profile-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.gheader {
+  height: 96px;
+  box-shadow: 0 0 16px rgba(211, 210, 210, 0.16);
+  /* position: absolute; */
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: var(--black);
+  border: "none";
+  outline: none;
+}
+
+.tt {
+  margin-bottom: 10px;
+}
+
+.header__fixed {
+  display: flex;
+
+  /* justify-content: space-between; */
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
+  border: "none";
+  outline: none;
+}
+
+.bj {
+  z-index: 4;
+}
+
+.bi {
+  cursor: pointer;
+}
+.bh {
+  width: 24px;
+}
+.bg {
+  height: 24px;
+}
+.be {
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.bcd {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  margin-bottom: 30px;
+}
+button {
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+.bn {
+  fill: currentColor;
+}
+.bm {
+  flex: none;
+  color: #f36c2a;
+}
+.bl {
+  height: 20px;
+}
+.bk {
+  width: 20px;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+.spacer._36 {
+  width: 36px;
+}
+
+.spacer._64 {
+  width: 64px;
+}
+.spacer._200 {
+  width: 200px;
+}
+.spacer._16 {
+  width: 16px;
+}
+
+.App {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+}
+
+.rec-carousel-item:focus {
+  outline: none;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+#App {
+  font-family: sans-serif;
+
+  /* Give app full page to work with */
+  height: 100vh;
+}
+
+#page-wrap {
+  text-align: center;
+
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  background-color: white !important;
+  /* Our sidebar item styling */
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #000000;
+  transition: color 0.2s;
+}
+.spacer._8 {
+  width: 8px;
+}
+
+/* Change color on hover */
+.bm-item:hover {
+  color: white;
+}
+.ggm {
+  vertical-align: middle;
+}
+
+/* The rest copied directly from react-burger-menu docs */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 26px;
+  height: 20px;
+  left: 36px;
+  top: 36px;
+  vertical-align: middle;
+}
+button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+div:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #f36c2a !important;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  display: none;
+  height: 240px;
+  width: 240px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: white;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  position: relative;
+  top: 1em;
+  right: 0.5em;
+  /* box-shadow: 5px 10px #d5d5d5; */
+  /* box-shadow: -10px 0px 60px 0px rgba(170, 170, 170, 0.462); */
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  display: none !important;
+}
+
+.iw {
+  transform: translateX(0px);
+}
+.iu {
+  opacity: 1;
+}
+
+.c7 {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.c6 {
+  overflow-x: hidden;
+}
+.c5 {
+  overflow-y: auto;
+}
+.c4 {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+.c3 {
+  padding: 24px;
+}
+.c2 {
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+}
+.c1 {
+  width: 300px;
+}
+.c0 {
+  max-width: 80%;
+}
+.bz {
+  background-color: #ffffff;
+}
+.b8 {
+  box-sizing: border-box;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+div {
+  display: block;
+}
+.bd {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+}
+.ba {
+  color: #000000;
+}
+body {
+  background: #ffffff;
+  color: #000000;
+  font-family: UberMoveText-Regular, sans-serif;
+}
+/* 
+.cartNumber {
+  width: 20px;
+  height: 19px;
+  display: flex;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.489);
+  z-index: 10;
+  position: relative;
+  bottom: 10px;
+  left: 25px;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; 
+} */
+
+/* ************************************HEADER NEW DESIGN****************************************************** */
+/* {bmenu00 mlogo00  search00 cart00} */
+.newheader00 {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  align-items: center;
+  display: grid;
+  grid-template: repeat(12, 1fr);
+  grid-template-areas: "b b m m m s s s s s s c c";
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  transition: background-color 0.2s;
+}
+
+.bmenu00 {
+  grid-area: b;
+  /* border: 1px solid rgb(8, 0, 255); */
+}
+
+.mlogo00 {
+  grid-area: m;
+  margin-left: 20px;
+  /* border: 1px solid rgb(242, 255, 0); */
+}
+.search00 {
+  grid-area: s;
+  /* border: 1px solid red; */
+}
+.cart00 {
+  grid-area: c;
+  /* border: 1px solid rgb(0, 0, 0); */
+  display: flex;
+  justify-content: center;
+}
+
+.cartIcon {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid green; */
+  width: 40px;
+  height: 40px;
+  /* cursor: pointer; */
+}
+
+@media screen and (max-width: 800px) {
+  .bm-menu {
+    top: -22px;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+  }
+
+  .newheader00 {
+    background-color: white !important;
+    width: 100%;
+
+    grid-template: 50px 50px / 20% 40% 40%;
+    grid-template-areas:
+      "b m c"
+      "s s s";
+  }
+
+  .cart00 {
+    padding-left: 27%;
+  }
+}
+
+/* ############################LoginButton #######################################  */
+
+.btn202 {
+  /* position: absolute; */
+  top: 4%;
+  right: 13%;
+  width: 8em;
+}
+
+.btnLogin {
+  margin: 0px;
+  background-color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 100%;
+  cursor: context-menu;
+  border-radius: 4px;
+  border: 1px solid rgba(158, 158, 158, 0.164);
+  color: rgb(42, 42, 42);
+}
+
+.btnLogout {
+  margin: 0px;
+  color: rgb(0, 0, 0) !important;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 128px;
+  z-index: 10;
+  color: black;
+  height: 40px;
+  border-radius: 6px;
+  padding: 8px;
+  margin-top: 80px;
+  padding-left: 37px;
+}
+
+.btnDropdown {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btnDropdown:hover .btnLogout {
+  display: block;
+}
+
+.btnLogout:hover {
+  background-color: #f26c2a;
+  color: rgb(255, 255, 255) !important;
+}
+
+@media screen and (max-width: 800px) {
+  .btn202 {
+    width: 4em;
+  }
+}

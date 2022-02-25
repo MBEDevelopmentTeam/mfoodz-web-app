@@ -1,0 +1,32 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.input-group {
+  border: 1px solid rgba(128, 128, 128, 0.421);
+  height: 58px;
+  border-radius: 2px;
+  background-color: #f6f6f6;
+}
+
+.btn {
+  margin: inherit;
+  /* height: 58px; */
+}
+
+.getLocationBox {
+  position: relative;
+  height: 100%;
+  width: 45px;
+
+  /* border: 1px solid red; */
+}
+
+.getLocationButton {
+  height: 27px;
+  width: auto;
+  color: #f26c2a;
+  margin: 16px 1px 1px 9px;
+  display: block;
+  cursor: pointer;
+}

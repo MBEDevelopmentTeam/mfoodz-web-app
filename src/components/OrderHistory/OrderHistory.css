@@ -1,0 +1,65 @@
+.mainframe {
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 7%;
+  padding-bottom: 8%;
+}
+
+.activeorders {
+  margin-top: 50px;
+}
+
+.activeorders p {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.pastorders {
+  margin-top: 50px;
+}
+
+.pastorders p {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.orderBoxPanel {
+  display: flex;
+  flex-direction: row;
+}
+
+.orderBox1 {
+  /* border: 1px solid blue !important; */
+  flex: 8;
+  margin-bottom: 20px;
+}
+
+.orderBox1 p {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.orderBox2 {
+  /* border: 1px solid red; */
+}
+
+.orderBox2 p {
+  font-size: 12px;
+}
+
+#ulActiveOrders li {
+  font-family: "Poppins-Regular";
+  color: rgb(49, 49, 49);
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+@media screen and (max-width: 800px) {
+  .mainframe {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 35%;
+    /* border: 1px solid red; */
+  }
+}

@@ -1,0 +1,82 @@
+
+
+.MS__mainFrame {
+  margin-top: 50px;
+  width: 100%;
+  padding-bottom: 8em;
+  background-color: #f7f7f7;
+}
+
+.MS__innerBox {
+  width: 74em;
+  margin: auto;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 10px;
+}
+
+.MS__innerOne {
+  margin: 0 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.MS__innerTwo {
+  margin: 0 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  height: 100%;
+}
+
+.MS__headings {
+  color: black;
+  font-size: 1.3em;
+  font-weight: bolder;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.MS__subHeadings {
+  text-align: center;
+  font-size: 1em;
+  letter-spacing: 0px;
+  color: gray;
+}
+
+.MS__logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 70%;
+}
+
+@media screen and (max-width: 800px) {
+  .MS__innerBox {
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+  }
+
+  .MS__innerBox {
+    width: 84%;
+  }
+
+  .MS__headings {
+    font-size: 1em;
+  }
+
+  .MS__subHeadings {
+    font-size: 0.8em;
+  }
+
+  .MS__mobileLogos {
+    width: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}

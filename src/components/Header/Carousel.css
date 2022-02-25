@@ -1,0 +1,26 @@
+
+.cimg{
+
+    height:100%;
+    width: 40%;
+    float: right;
+}
+
+.cbg{
+
+    width:750px;
+    height: 250px;
+    background-color:#EF722F;
+}
+.ff{
+    font-family: sans-serif;
+    color: white;
+    margin-top: 50px;
+
+
+}
+
+.dm{
+    margin-right: 400px;
+    margin-bottom: 40px;
+}

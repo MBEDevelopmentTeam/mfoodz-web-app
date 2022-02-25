@@ -1,0 +1,47 @@
+.jd {
+  padding-bottom: 8px;
+}
+
+.fl {
+  font-family: UberMove-Medium, sans-serif;
+}
+
+.fk {
+  line-height: 44px;
+}
+
+.fj {
+  font-size: 36px;
+  color: black;
+}
+
+.fi {
+  text-align: center;
+}
+
+#btndatanotfound {
+  height: auto;
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #f26c2a;
+  cursor: pointer;
+  border: none;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.dataNotfoundMain {
+  height: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 35px;
+}
+
+.dataNotFoundImage {
+  height: 350px;
+  width: 350px;
+  margin: auto;
+}

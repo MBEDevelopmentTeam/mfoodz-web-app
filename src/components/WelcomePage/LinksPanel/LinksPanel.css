@@ -1,0 +1,82 @@
+.LP__mainFrame {
+  width: 100%;
+  background-color: #eaeff2;
+}
+
+.LP__innerBox {
+  width: 74em;
+  margin: auto;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 80px auto;
+  grid-template-columns: 100%;
+  row-gap: 5px;
+  padding-top: 25px;
+  padding-bottom: 50px;
+}
+
+.innerBox__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #dadfe8;
+}
+
+.mlogo {
+  height: 55px;
+  width: 210px;
+}
+
+.innerBox__linksPanel {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.linkFrame {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  line-height: 1.8;
+}
+
+.linkHeader {
+  font-weight: 900;
+  font-size: 16px;
+  cursor: default;
+  color: black;
+}
+
+.linkName {
+  font-size: 14px;
+  cursor: default;
+  text-decoration: none;
+  color: rgb(73, 73, 73) !important;
+}
+
+.linkName:hover {
+  color: rgb(73, 73, 73) !important;
+}
+
+@media screen and (max-width: 800px) {
+  .LP__innerBox {
+    width: 100%;
+  }
+
+  .linkFrame {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .innerBox__linksPanel {
+    grid-template-columns: 200px 200px;
+    grid-template-rows: auto auto;
+    justify-content: center;
+  }
+
+  .linkFrame {
+    align-items: center;
+  }
+
+  .innerBox__header {
+    align-items: center;
+  }
+}

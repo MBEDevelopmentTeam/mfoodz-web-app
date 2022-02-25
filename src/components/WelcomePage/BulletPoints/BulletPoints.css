@@ -1,0 +1,48 @@
+
+
+.bullets__mainFrame {
+  /* border: 1px solid red; */
+  margin-top: 100px;
+  width: 100%;
+}
+
+.bulletsFrame__one {
+  /* border: 1px solid black; */
+  width: 74em;
+  margin: auto;
+  height: 100%;
+}
+
+.whymfoodz__head {
+
+  font-weight: bolder;
+  font-size: 2.5em;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  color: black;
+}
+
+.whymfoodz__list {
+  font-size: 17px;
+  display: grid;
+  grid-template-columns: 30px auto;
+  color: black;
+}
+
+li {
+  margin-bottom: 30px;
+}
+
+strong {
+  font-size: 17px;
+}
+
+@media screen and (max-width: 800px) {
+  .bullets__mainFrame {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .bulletsFrame__one {
+    width: 100%;
+  }
+}

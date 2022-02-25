@@ -1,0 +1,131 @@
+{
+    "Header": {
+
+        "title": "Hungry?",
+        "paragraph": "You're in the right place"
+
+    },
+    "About": {
+        "paragraph": "M-Foodz deals in all kinds of restaurants in all seven districts of Karachi, as it believes in delivering quality at your doorstep. Our quality assurance procedures are the best and the most innovative, up to the globalized food industry standards.The best has just got better with M-Foodz!",
+        "Why": [
+            "Guaranteed Quality Standards",
+            "Live Chat Support",
+            "Favorite food, Convenience",
+            "Time security"
+        ],
+        "Why2": [
+            "All in one spot!",
+
+            "M-Foodz Is Just A Tap Away!",
+            
+            "Key Services & Core Values",
+            
+            "No More A Hassle"
+        ]
+    },
+    "Services": [{
+            "img": "images/Service1.png",
+            "icon": "fa fa-globe",
+            "name": "Online Order",
+            "text": "A customer finds your restaurant on the M-Rides app and places an order."
+        },
+        {
+            "img": "images/Service2.png",
+            "icon": "fa fa-cutlery",
+            "name": "Restaurants Onboard",
+            "text": "The order is accepted and prepared by your restaurant."
+        },
+        {
+            "img": "images/Service3.png",
+            "icon": "fa fa-truck",
+            "name": "Food Delivery",
+            "text": "Our rider picks up the order from your restaurant and delivers it to the customer."
+        }
+    ],
+    "Testimonials": [{
+            "img": "img/testimonials/01.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "John Doe"
+        },
+        {
+            "img": "img/testimonials/02.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "Johnathan Doe"
+        },
+        {
+            "img": "img/testimonials/03.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "John Doe"
+        },
+        {
+            "img": "img/testimonials/04.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "Johnathan Doe"
+        },
+        {
+            "img": "img/testimonials/05.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "John Doe"
+        },
+        {
+            "img": "img/testimonials/06.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "Johnathan Doe"
+        }
+    ],
+    "Team": [{
+            "img": "images/popular/italian.jpg",
+            "name": "Italian",
+            "job": "Director"
+        },
+        {
+            "img": "images/popular/pizza.jpg",
+            "name": "Pizza",
+            "job": "Senior Designer"
+        }, {
+            "img": "images/popular/chinese.jpg",
+            "name": "Chinese",
+            "job": "Senior Designer"
+        },
+        {
+            "img": "images/popular/japanese.jpg",
+            "name": "Japanese",
+            "job": "Project Manager"
+        },
+        {
+            "img": "images/popular/italian.jpg",
+            "name": "Pakistani",
+            "job": "Project Manager"
+        }
+    ],
+    "Contact": {
+        "address": "Mezzanine floor, Block Number 4, Clifton, Karachi.",
+        "phone": "(+1) 866 667-1377",
+        "email": "info@mbeforyou.com",
+        "facebook": "fb.com",
+        "twitter": "twitter.com",
+        "youtube": "youtube.com",
+        "AboutMFood": "M-Foodz deals in all kinds of restaurants in all seven districts of Karachi, as it believes in delivering quality at your doorstep. Our quality assurance procedures are the best and the most innovative."
+    },
+    "Features": [{
+            "icon": "fa fa-comments-o",
+            "title": "Drive With M-Foods",
+            "text": "Earn extra money in your spare time. Set your availability, keep 100% of your delivery fees and tips, and get paid weekly."
+        },
+        {
+            "icon": "fa fa-bullhorn",
+            "title": "Partner With M-Foods",
+            "text": "Team up with us to reach more customers. Let us take care of the details, so you can stay focused on making great food."
+        },
+        {
+            "icon": "fa fa-group",
+            "title": "Careers At M-Foods",
+            "text": "Gain experience that matters. Grow with our team of high performers in a fun, challenging, and fast-paced environment."
+        },
+        {
+            "icon": "fa fa-magic",
+            "title": "Grow with M-Foods",
+            "text": "Gain experience that matters. Grow with our team of high performers in a fun, challenging, and fast-paced environment."
+        }
+    ]
+}

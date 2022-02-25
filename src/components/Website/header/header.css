@@ -1,0 +1,142 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.headercontainer {
+  background: url(../images/mfood-bg3.jpg) center center no-repeat;
+  width: 100%;
+  padding: 0;
+  object-fit: cover;
+  display: grid;
+  grid-template-columns: 1200px;
+  grid-template-rows: 49px 165px 308px 151px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 7vh;
+}
+.section202 {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 93px 157px 41px;
+  justify-items: center;
+  align-items: center;
+}
+
+
+/* .btn202 {
+  display: grid;
+  grid-template-columns: 12%;
+  justify-content: end;
+  margin-top: 1%;
+}
+
+.btnDropdown {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btnDropdown:hover .btnLogout {
+  display: block;
+}
+
+.btnLogin {
+  margin: 0px;
+  background-color: #f26c2a;
+  font-size: 10px;
+  width: 100%;
+  cursor: context-menu;
+  border-radius: 20px;
+  color: white;
+}
+
+.btnLogout {
+  margin: 0px;
+  color: rgb(0, 0, 0) !important;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 144px;
+  z-index: 10;
+  color: black;
+  height: 40px;
+  border-radius: 20px;
+  padding: 8px;
+  margin-top: 80px;
+  padding-left: 37px;
+}
+
+.btnLogout:hover {
+  background-color: rgb(121, 121, 121);
+  color: rgb(255, 255, 255) !important;
+} */
+
+.one {
+  font-size: 10vw;
+}
+
+.two {
+  color: white;
+  font-size: 8vw;
+  text-align: center;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.three {
+  color: white;
+  font-size: 1.8vw;
+}
+
+.four {
+  margin-bottom: 2%;
+  margin-top: 2%;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+@media screen and (max-width: 600px) {
+  .headercontainer {
+    grid-template-columns: 100%;
+    grid-template-rows: 120px auto 183px 126px;
+  }
+
+  .btn202 {
+    grid-template-columns: 40%;
+    justify-content: center;
+  }
+  .btnLogin {
+    border-radius: 5px;
+  }
+
+  .btnLogout {
+    border-radius: 5px;
+  }
+
+  .section202 {
+    grid-template-rows: 75px 83px 15px;
+  }
+
+  .one {
+    width: 300px;
+  }
+
+  .two {
+    color: white;
+    font-size: 15vw;
+  }
+
+  .three {
+    color: white;
+    font-size: 3vw;
+  }
+
+  .four {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

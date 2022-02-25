@@ -1,0 +1,36 @@
+.ordersPanel__mainFrame {
+  /* border: 1px solid red; */
+  margin-top: 6em;
+  width: 100%;
+}
+
+.ordersPanel__innerFrame {
+  /* border: 1px solid slateblue; */
+  width: 74em;
+  margin: auto;
+  /* padding-bottom: 100px; */
+  height: auto;
+}
+
+.orderPanelText {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 800px) {
+  .ordersPanel__mainFrame {
+    /* border: 1px solid red; */
+  }
+
+  .ordersPanel__innerFrame {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .orderPanelText {
+    font-size: 1.5em;
+    text-align: center;
+  }
+}

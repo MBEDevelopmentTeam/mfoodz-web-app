@@ -1,0 +1,51 @@
+.restaurants-list {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  flex-direction: column;
+}
+
+.msg {
+  align-items: center !important;
+  color: red;
+  justify-content: center !important;
+}
+
+.title-flat {
+  font-size: 3.2rem;
+  margin-bottom: 16px;
+}
+.title-flat {
+  font-weight: 300;
+  line-height: 1.25em;
+  color: #333;
+  display: block;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.col-md-8 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .col-md-8 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 7px;
+  }
+}

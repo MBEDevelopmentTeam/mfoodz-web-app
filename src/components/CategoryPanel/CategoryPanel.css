@@ -1,0 +1,254 @@
+.DishCategories {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.card {
+  width: 100%;
+  height: 100px;
+  color: white;
+  font-size: 30px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fy {
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.AllDishes {
+  /* margin-bottom: 50px; */
+}
+
+.flex-container {
+  margin-top: 20px;
+  /* display: flex;
+    flex-wrap: wrap; */
+}
+
+.flex-container > div {
+  /* text-align: center;
+line-height: 75px; */
+}
+
+.bc {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  margin-left: -6px;
+}
+
+.ez {
+  -webkit-box-align: start;
+  align-items: flex-start;
+}
+.fw {
+  grid-template-columns: repeat(3, 1fr);
+}
+.fy {
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.fv {
+  gap: 40px 24px;
+}
+
+.fu {
+  display: grid;
+}
+.c4 {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+
+.be {
+  -webkit-box-align: center;
+  align-items: center;
+}
+.h7 {
+  width: 80px;
+}
+
+.af {
+  position: relative;
+}
+.ib {
+  width: 60px;
+}
+
+.ic {
+  height: 60px;
+}
+
+.fd {
+  width: 100%;
+}
+
+.fe {
+  height: 100%;
+}
+
+.fz {
+  border-radius: 50%;
+}
+
+.ca {
+  font-size: 14px;
+  text-align: center;
+  color: black;
+}
+.cb {
+  line-height: 16px;
+}
+.ff {
+  width: 100%;
+}
+.cc {
+  font-family: UberMoveText-Medium, sans-serif;
+}
+.fd {
+  width: 100%;
+}
+.fg {
+  text-align: center;
+}
+
+.ig {
+  -webkit-line-clamp: 2;
+}
+
+.if {
+  -webkit-box-orient: vertical;
+}
+
+.ie {
+  display: -webkit-box;
+}
+
+.aj {
+  overflow: hidden;
+  color: black;
+}
+
+.ih {
+  padding: 0px;
+}
+
+.h4 {
+  margin: 0px;
+}
+
+.d1 {
+  flex-shrink: 0;
+}
+
+.cl {
+  width: 16px;
+}
+
+.ah {
+  height: 1px;
+}
+
+.g9 {
+  height: 8px;
+}
+.g1 {
+  grid-column: 1 / -1;
+}
+
+.g0 {
+  min-width: 0px;
+}
+.f1 {
+  -webkit-box-align: start;
+  align-items: flex-start;
+}
+.g4 {
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.g5 {
+  width: 90px;
+}
+.ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  list-style-type: disc;
+}
+.hide {
+  display: none;
+}
+.b6 {
+  padding: 0 40px;
+}
+
+.b8 {
+  box-sizing: border-box;
+}
+
+.b7 {
+  margin: 0 auto;
+}
+
+.b6 {
+  min-width: 1024px;
+}
+
+.b5 {
+  max-width: 1500px;
+}
+
+li {
+  display: block;
+}
+
+.ge {
+  padding: 0px;
+}
+
+.gd {
+  margin: 0px;
+}
+
+.g7 {
+  height: 80px;
+}
+
+.g6 {
+  width: 80px;
+}
+
+.g8 {
+  border-radius: 50%;
+}
+
+.a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.spacer._8 {
+  width: 8px;
+}
+.spacer._16 {
+  width: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .newDishCate {
+    margin-top: 100px;
+  }
+  .AllDishes {
+    /* margin-bottom: 50px; */
+  }
+
+
+}

@@ -1,0 +1,265 @@
+import React, { lazy, Suspense, useEffect, useState } from "react";
+import { RestaurantCard } from "../RestaurantCard/RestaurantCard";
+import "./Carousel.css";
+import { Loader } from "../Loader/Loader";
+import { Link } from "react-router-dom";
+import { PanelHeading } from "./PanelHeading";
+import { Fragment } from "react";
+import { Contact } from "../Website/contact";
+import Carousel from "react-elastic-carousel";
+
+export function ControlledCarousel(props) {
+  const [RestaurantsData, setRestaurantsData] = useState([]);
+  const [CategoriesData, setCategoriesData] = useState([]);
+  const [AllRestaurantsData, setAllRestaurantsData] = useState([]);
+
+  var CatURL = `http://172.16.100.199:8083/api/MFoodz/GetAllShopsWithCategoriesByRadius?Lat=24.80623797208785&Long=67.02701928310108&CountryCode=92`;
+
+  //http://172.16.100.199:8083/api/MRide/GetAllShop
+  var url = `http://172.16.100.199:8083/api/MFoodz/GetSearchedShops?SearchedValue=${props.SearchParam}&Header=${props.SearchHeader}&CountryCode=${props.SearchCountryCode}&Lat=${props.SearchLat}&Long=${props.SearchLong}`;
+  if (props.SearchParam == null && props.SearchHeader == null && props.SearchCountryCode == null && props.SearchLat == null && props.SearchLong == null) {
+    // alert(props);
+  }
+
+
+  var message = "";
+  useEffect(() => {
+    (async () => {
+      //alert(url);
+      const fetchedRestaurants = await fetch(url);
+      const loadedRestaurants = await fetchedRestaurants.json();
+      // console.log("Hello");
+      // console.log(fetchedRestaurants);
+      return fetch(
+        `${url}`,
+        //`http://172.16.100.199:8083/api/MFoodz/GetSearchedShops?SearchedValue=${props.SearchParam}&Header=${props.SearchHeader}&CountryCode=${props.SearchCountryCode}&Lat=${props.SearchLat}&Long=${props.SearchLong}`
+        //  `http://172.16.100.199:8083/api/MFoodz/GetSearchedShops?SearchedValue=pizza&Header=M_SubMenuHeader&CountryCode=92&Lat=24.80623797208785&Long=67.02701928310108`
+      )
+
+        .then((resp) => resp.json())
+        .then((Response) => {
+          //alert("Ali");
+          var apiResponce = JSON.parse(Response.Result.Response);
+          var myObject = JSON.parse(Response.Result.Data);
+          const Arrays = [];
+          var SearchList = myObject.SearchedShops;
+          Arrays.push(SearchList)
+          setRestaurantsData(SearchList);
+          //console.log(Arrays);
+        });
+    })();
+  });
+
+
+  //Fetch All Categories Carousel & All Restaurants List - Start
+  useEffect(() => {
+    (async () => {
+      const fetchCategories = await fetch(CatURL);
+      const loadCategories = await fetchCategories.json();
+      // console.log("categories");
+      //console.log(fetchCategories);
+      return fetch(
+        `${CatURL}`,
+      )
+        .then((CatResponse) => CatResponse.json())
+        .then((Response) => {
+          var CatRes = JSON.parse(Response.Result.Response);
+          var CatObject = JSON.parse(Response.Result.Data);
+
+          const CatArray = [];
+          const ShopArray = [];
+          const AllRestaurantsArray = [];
+
+          var CatList = CatObject.Shops[0];
+          CatArray.push(CatList);
+
+          var ShopObject = CatList.RestaurantsWithCategory;
+          ShopArray.push(ShopObject);
+
+          var AllRestaurantsObject = CatList.AllRestaurants;
+          AllRestaurantsArray.push(AllRestaurantsObject);
+
+          setAllRestaurantsData(AllRestaurantsObject);
+          setCategoriesData(ShopObject);
+          //console.log(ShopObject);
+        });
+    })();
+  });
+  //Fetch All Categories Carousel & All Restaurants List - Start
+
+  function onPageClick() {
+    // return console.log("test");
+  }
+  function onRestaurantClick() { }
+
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 300, itemsToShow: 1 },
+    { width: 400, itemsToShow: 2 },
+    { width: 500, itemsToShow: 3 },
+    { width: 786, itemsToShow: 4 },
+    { width: 1200, itemsToShow: 5 },
+  ];
+
+  return (
+    <>
+      {/* Main API Dishes Carousel Start */}
+      <div className="container-fluid" id="categories" style={{ maxWidth: "100%", fontFamily: "sans-serif" }} onClick={() => onPageClick}>
+        <div className="row">
+          {/* <div className="col-md-12 AllRestaurantBox" style={{backgroundColor:"blue"}}></div> */}
+          {CategoriesData.length > 0 ? CategoriesData.map((category) => {
+            return (
+              <>
+                <div style={{ textAlign: "left" }} className='col-md-8 col-md-offset-2 section-title'>
+                  <h1 style={{ textAlign: 'center' }}>{category.Category}</h1>
+                </div>
+                <div className='col-md-12 AllRestaurant'>
+                  <Carousel
+                    breakPoints={breakPoints}
+                    showArrows={true}
+                  >
+                    {category.Shops.length > 0 ? category.Shops.map((rest) => {
+                      return (
+                        <>
+                          <RestaurantCard
+                            key={rest.Id}
+                            Id={rest.Id}
+                            bg={rest.ShopImage}
+                            name={rest.StoreName}
+                            onRestaurantClick={onRestaurantClick}
+                            price={rest.DeliveryFee}
+                            deliveryTime={rest.EstimatedDeliveryTime}
+                            Offer={rest.OfferName}
+                            className='RestaurantCardBox' />
+                        </>
+                      );
+                    }) : <Loader />
+                    }
+                  </Carousel>
+                </div>
+              </>
+            );
+          }) : <Loader />
+          }
+        </div>
+      </div>
+
+
+      {/* Main API Dishes Carousel end */}
+
+      {/* All Restaurants Container Start */}
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-12" style={{ textAlign: "center" }}>
+            <h2 style={{}}>All Restaurants</h2>
+          </div>
+        </div>
+
+        <div className="row justify-content-md-center">
+          <div className="col-md-12" id="AllRestaurantContainer">
+
+            {AllRestaurantsData.length > 0 ? (
+              AllRestaurantsData.map((rest) => {
+                return (
+                  <>
+                    <RestaurantCard
+                      key={rest.Id}
+                      Id={rest.Id}
+                      bg={rest.ShopImage}
+                      name={rest.StoreName}
+                      onRestaurantClick={onRestaurantClick}
+                      price={rest.DeliveryFee}
+                      deliveryTime={rest.EstimatedDeliveryTime}
+                      Offer={rest.OfferName}
+                      className='RestaurantCardBox' />
+                  </>
+                );
+              })
+            ) : (
+              <Loader />
+            )}
+          </div>
+        </div>
+      </div>
+      {/* All Restaurants Container End */}
+
+      {/*  */}
+      <div className="container-fluid">
+        <div className="row justify-content-md-center">
+          <div className="col-md-12" id="divMainPageDetail">
+            <h3 style={{ fontWeight: "bolder" }}>
+              Food Delivery in Your City From Only The Best Restaurants
+            </h3>
+            <p>
+              For those who like good food, exciting new options are now
+              available in Karachi. Whether you live in Karachi, or are simply
+              enjoying a holiday in the area, culinary delights aplenty are now
+              just a simple online order away. The Karachi food delivery service
+              has enjoyed a culinary renaissance in recent years, with a
+              blossoming of new restaurants and take away eateries on almost
+              every street; in fact, there are now literally hundreds of
+              restaurants in Karachi, and foodpanda.com is the fastest, easiest
+              and most reliable way of locating and ordering from the outlet of
+              your choice. And whether you're in the mood for some comfortably
+              familiar flavours, or fancy sampling some excitingly exotic dish,
+              the meal of your choice is now just a few button clicks away,
+              delivered fresh and piping hot to your door.
+            </p>
+
+            <h3 style={{ fontWeight: "bolder" }}>
+              Why food delivery from M-Foodz?
+            </h3>
+            <p>
+              Our team of experts have paid a visit to every restaurant you’ll
+              find here, and checked they’re up to our strict standards - only
+              Karachi's most beloved spots are here to order from. Quickly place
+              and pay for your order online, and find your food delivered
+              straight to your door in no time at all.
+            </p>
+
+            <h3 style={{ fontWeight: "bolder" }}>
+              Discover the Best Restaurants in Your City
+            </h3>
+            <ul id="listMainPage" style={{}}>
+              <li>
+                - Do you fancy fine, high quality food from an upscale, refined
+                eatery?
+              </li>
+              <li>
+                - Then you'll love the Mediterranean, Italian fusion cuisine
+                available at Okra restaurant, or Cafe Aylanto.
+              </li>
+              <li>
+                - Maybe you're in the mood for a hearty, beach-style barbecue?
+                Kolachi restaurant or BBQ Tonight are ready and willing to
+                oblige.
+              </li>
+              <li>
+                - Or perhaps you feel that spice is nice? Saffron or Dumpukht
+                are two of the hottest Indian takeaways in town.
+              </li>
+              <li>
+                - And then there is the ultimate in social food, the pizza.
+              </li>
+              <li>
+                - Swap slices of this perennial crowd-pleaser with an order from
+                Pompei Italian Restaurant Karachi, or 14th Street Pizza.
+              </li>
+            </ul>
+
+            <h3 style={{ fontWeight: "bolder" }}>
+              Food for your friends or the office?
+            </h3>
+            <p>
+              Let us do the hard part of entertaining and bring the food right
+              to you and your friends. Alternatively if you need to organize
+              some catering for your co-workers, are working late, or want to
+              treat the team, you can conveniently order straight to your
+              office.
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

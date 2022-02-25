@@ -1,0 +1,569 @@
+* {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.products_page_container {
+  font-size: 62.5% !important;
+  width: 100% !important;
+  height: auto !important;
+  /* margin-top: 5.7em; */
+  /* border: 1px solid orange; */
+}
+
+.banner_image {
+  width: 100% !important;
+  height: 280px !important;
+
+  object-fit: cover;
+}
+
+.restaurant_info {
+  display: flex;
+  flex-direction: row;
+
+  height: 180px !important;
+  padding-left: 110px !important;
+  align-items: center;
+
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.restaurant_info1 {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewStarHead {
+  font-size: 170%;
+  color: #0000ff;
+  margin-left: 10px;
+  margin-top: 1px;
+}
+
+.restaurant_info2 {
+  display: flex;
+  flex: 1 1;
+  flex-direction: row;
+  justify-content: center;
+  bottom: 63px;
+
+  margin-right: 270px;
+  position: relative;
+}
+
+.deal_title {
+  margin: 0;
+  padding: 0;
+
+  width: 100% !important;
+  height: 70px !important;
+  background: #fafafa !important;
+  position: relative;
+  display: grid;
+  grid-template: 50px / repeat(12, 1fr);
+  grid-template-areas: "f f f f f . . . l l l .";
+
+  padding-left: 15px;
+  z-index: -3;
+}
+
+.deal_title1 {
+  margin: 0;
+  padding: 0;
+  margin-left: 15% !important;
+  font-weight: 700 !important;
+  grid-area: f;
+  margin-top: 22px;
+}
+
+.deal_title2 {
+  margin: 0;
+  padding: 0;
+  margin-right: 10% !important;
+  height: 100%;
+  grid-area: l;
+  margin-top: 9px;
+}
+
+.cat_list {
+  /* background: white;
+  position: sticky;
+  z-index: 1;
+  top: 0; */
+  padding-right: 305px;
+  width: 100%;
+  height: 70px;
+  padding-left: 110px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.cat_list--innerBox {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  overflow: scroll;
+}
+
+.cat_list_items {
+  text-align: center;
+  width: auto;
+  font-size: 62.5%;
+  text-transform: uppercase;
+  border-bottom: 1px solid #f26c2a;
+  font-weight: 200;
+  margin-right: 20px;
+  height: 50%;
+  transition: border-bottom 0.15s linear, font-weight 0.15s;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.cat_list_items p {
+  font-size: 2em;
+  white-space: nowrap;
+}
+
+.cat_list_items:hover {
+  font-weight: bolder !important;
+  color: rgb(0, 0, 0) !important;
+  cursor: pointer;
+  border-bottom: 3px solid #f26c2a;
+}
+
+.rest_btn {
+  font-size: 16px;
+  width: 230px !important;
+  color: #f16b2a !important;
+  margin: 0px;
+}
+
+.dishHeadImage {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
+  top: 10px !important;
+  object-fit: fill;
+}
+
+.dish_head {
+  height: 40px !important;
+  font-size: 52%;
+}
+
+.dish_head1 h4 {
+  text-transform: uppercase !important;
+  color: black;
+  font-size: 5em;
+  font-family: "Poppins-Regular";
+  margin: 0;
+  font-weight: 800;
+}
+
+.dish_head1 p {
+  color: gray;
+  font-size: 2.8em;
+  font-family: "Poppins-Regular";
+  text-transform: capitalize;
+}
+
+.dish_panel_main {
+  width: 100%;
+  /* border: 1px solid red; */
+  margin-top: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.061), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-left: 110px;
+}
+
+.dish_panel_innerBox {
+  width: 78em;
+  /* margin: auto; */
+  display: grid;
+  grid-template-rows: 55px auto;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "p1 p1 p1 p1 p1 p1 p1 p1 p1 p1 p1 p1"
+    "p2 p2 p2 p2 p2 p2 p2 p2 p2 p2 p2 p2";
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+  justify-content: center;
+
+  /* border: 1px solid red; */
+}
+
+.dish_panel-1 {
+  grid-area: p1;
+
+  /* border: 1px solid rgb(0, 0, 0); */
+}
+
+.dish_panel-2 {
+  grid-area: p2;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  /* border: 1px solid rgb(98, 29, 202); */
+}
+
+.dish_item {
+  width: 76em !important;
+  height: 27em !important;
+  cursor: pointer;
+  padding: 5px !important;
+  display: flex;
+  flex-direction: row;
+  margin-right: 28px;
+  margin-top: 20px;
+  font-size: 48%;
+  border-radius: 3px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.dish_item1 {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15px;
+}
+
+.dish_item1 h4.item_title {
+  font-size: 3.3em;
+  font-family: "Poppins-Regular";
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.dish_item1 p.item_disc {
+  margin: 0;
+  padding: 0;
+  color: "#888888";
+  font-size: 2.8em;
+  font-family: "Poppins-Regular";
+  font-weight: 100;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.dish_item1 p.item_price {
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-size: 3em;
+  font-weight: 400;
+}
+
+.dish_item2 {
+  flex: 1;
+  padding-top: 10px;
+  position: relative;
+}
+
+.dishItemImage {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50% !important;
+  object-fit: cover;
+}
+
+.btnAddToMenu {
+  background-color: #f16b2a;
+  display: flex;
+  margin: 0px;
+  justify-content: center;
+  align-items: center;
+  width: 25px !important;
+  height: 25px !important;
+  color: white;
+  font-size: 28px;
+  border: 1px solid white;
+  border-radius: 2% !important;
+  position: absolute;
+  top: 2.9em;
+  right: 0.15em;
+  padding-left: 1px;
+  padding-top: 1px;
+}
+
+.rest_title_text {
+  font-weight: 700 !important;
+  font-size: 2.6em !important;
+}
+
+.rest_disc_text {
+  color: #4f4f4f !important;
+  margin-top: 8px !important;
+
+  font-weight: 50 !important;
+  font-size: 1.6em !important;
+}
+
+.rest_info_box {
+  background-color: #f26c2a;
+  width: 150px;
+  height: 30px;
+  padding-top: 8px;
+}
+
+.rest_box_text {
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: 600;
+}
+/* ****************************************** Restaurant Information Panel Starts Here ************************ */
+.restInfo_ModalMain {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+}
+
+.restInfo_headerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.restInfoCloseBtn {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  border-radius: 15px;
+  background-color: #f26c2a;
+  font-weight: 1000;
+  width: 25px;
+  height: 25px;
+  padding-left: 1px;
+  font-size: 15px;
+  color: #ffffff;
+  margin: 5px;
+  border: 2px solid white;
+}
+
+/* (Second) White Box With Restaurant Info */
+
+.restModal-1_inner1 {
+  position: relative;
+  bottom: 30%;
+  z-index: 2;
+  margin: auto;
+  width: 80%;
+  background-color: rgb(252, 252, 252);
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+
+  display: grid;
+  grid-auto-columns: 100%;
+  grid-template-rows: 50px 30px 30px 40px;
+  text-align: center;
+}
+
+.restModal-1_inner1-section-1 {
+  margin: 3% 0 0 0;
+}
+
+.restModal-1_inner1-section-1 h3 {
+  color: #f16b2a;
+  font-size: 20px;
+}
+
+.restModal-1_inner1-section-2 p {
+  font-size: 12px;
+  color: black;
+}
+
+.restModal-1_inner1-section-3 p {
+  color: black;
+}
+
+.restModal-1_inner1-section-4 {
+  border-top: 0.5px solid rgba(162, 162, 162, 0.579);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#aboutButton {
+  width: auto;
+  text-align: end;
+  margin: 5px 10px 5px 120px;
+}
+#aboutButtonHovered {
+  width: auto;
+  text-align: end;
+  margin: 5px 10px 5px 120px;
+  cursor: pointer;
+  border-bottom: 3px solid #f26c2a;
+  color: black !important;
+}
+
+#aboutButton:hover {
+  cursor: pointer;
+  border-bottom: 3px solid #f26c2a;
+  color: black !important;
+}
+
+#reviewsButton {
+  width: auto;
+  text-align: start;
+  margin: 5px 120px 5px 10px;
+}
+
+#reviewsButtonHovered {
+  width: auto;
+  text-align: start;
+  margin: 5px 120px 5px 10px;
+  cursor: pointer;
+  border-bottom: 3px solid #f26c2a;
+  color: black !important;
+}
+
+#reviewsButton:hover {
+  cursor: pointer;
+  border-bottom: 3px solid #f26c2a;
+  color: black !important;
+}
+
+.restModal-2 {
+  margin: 0px 5px 5px 5px;
+  height: 100%;
+}
+
+/* (Third) Box Where About and Reviews Sections are Displayed */
+
+.restModal-2_inner1 {
+  height: 75%;
+  margin-top: 15%;
+  margin-left: 3%;
+  margin-right: 3%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 3%;
+  padding-bottom: 2%;
+  /* border: 1px solid red; */
+}
+
+.restModal_aboutSection {
+  width: 100%;
+  display: grid;
+  grid-auto-columns: 50% 50%;
+  grid-template-areas: "a1 a2";
+  /* border: 1px solid rgb(52, 9, 224); */
+}
+
+.aboutSection-1 {
+  grid-area: a1;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  /* height: fit-content; */
+  overflow: hidden;
+  /* border: 1px solid rgb(208, 8, 214); */
+}
+
+.aboutSection-2 {
+  grid-area: a2;
+  margin: 5px;
+  /* padding-top: 4%; */
+
+  /* padding-bottom: 12%; */
+  /* height: fit-content; */
+  overflow: hidden;
+  /* border: 1px solid rgb(255, 217, 0); */
+}
+
+/*   Reviews Panel is Also Displayed According 
+      to this Panel Below 
+.restModal-2_inner1 {
+  height: 75%;
+  margin-top: 15%;
+  margin-left: 9%;
+  margin-right: 9%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 8%;
+  padding-bottom: 8%;
+} */
+
+.reviews_panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* border: 1px solid green; */
+}
+
+.reviewScroll {
+  width: auto;
+  /* border: 0.5px solid rgba(128, 128, 128, 0.341); */
+}
+
+.reviews {
+  padding-left: 2px;
+  padding-right: 10px;
+  padding-top: 5px;
+  margin-bottom: 3%;
+}
+
+.reviews h6 {
+  font-weight: bold;
+}
+
+.reviewStar {
+  color: #0000ff;
+  font-size: 17px;
+  float: right;
+  margin-right: 5px;
+}
+
+/********************************* SubMenuPanel Starts From Here **********************/
+
+.subMenuPanel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.submenu1 {
+  flex: 3;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.submenu2 {
+  flex: 3;
+
+  display: flex;
+  flex-direction: column;
+  width: "100%";
+  margin: 2%;
+}
+
+.submenu3 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1%;
+}
+
+.addToCartButton {
+  text-align: center;
+}
+
+.section1 {
+  background-color: #f3f3f3;
+  width: 100%;
+  height: 50px !important;
+  text-align: left;
+
+  border-bottom: 1px solid #c9c9c9;
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+}

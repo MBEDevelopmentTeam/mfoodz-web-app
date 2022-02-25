@@ -1,0 +1,38 @@
+.TDAhead {
+  width: 100%;
+  border: 0.5px solid #80808069;
+  border-radius: 3px;
+  margin-top: 60px;
+}
+
+.TDAhead1 {
+  margin-right: 25px;
+}
+
+.deliveryMapIcon {
+  font-size: 20px;
+  margin-left: 5px;
+  margin-top: 17px;
+}
+
+.confirmLocationBTN {
+  z-index: 2;
+  position: absolute;
+  width: 245px;
+  border: 1px solid;
+  color: white;
+  background-color: #f26c2a;
+  left: 10.5rem;
+  top: 18rem;
+  /* bottom: 2%; */
+  font-size: 17px;
+}
+
+@media screen and (max-width: 600px) {
+  .confirmLocationBTN {
+    width: 160px;
+    bottom: -24%;
+
+    font-size: 12px;
+  }
+}

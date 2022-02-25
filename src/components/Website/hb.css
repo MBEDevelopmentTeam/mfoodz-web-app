@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+
+.hbt {
+  margin-top: 20px !important;
+}
+
+#ulAboutList li {
+  font-size: 12px;
+}
+
+#ulAboutList li {
+  list-style-type: disc;
+}
+
+.ulAbout p {
+  color: black;
+  font-family: "Poppins-Regular";
+}
+
+/* #btnLogin {
+  color: "white";
+  width: auto;
+  height: auto;
+  float: right;
+  font-size: 20px;
+  text-align: center;
+  margin-top: -150px;
+} */
+
+.intro-text {
+}
+
+.footerTitles {
+  color: #f16b2a;
+}
+
+.ulFooter {
+  /* / border: 1px orangered solid; / */
+}
+
+.ulFooter h2 {
+  text-align: center;
+}
+
+.ulFooter.p {
+  line-height: normal;
+}
+
+.ulFooter {
+  height: 91%;
+  text-align: center;
+  /* / padding: 10px; / */
+}
+
+.ulFooter a {
+  color: white;
+}
+
+.ulFooter a:hover {
+  color: white !important;
+}
+
+.ulFooter li a {
+  font-size: 15px;
+}
+
+.ulFooter li a:hover {
+  color: white !important;
+}
+
+.footerTitles {
+  font-size: 27px;
+}
+
+.cw {
+  color: white !important;
+}

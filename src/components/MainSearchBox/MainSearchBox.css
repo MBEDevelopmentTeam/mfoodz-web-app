@@ -1,0 +1,132 @@
+/* 
+.mainpage{
+    border:1px solid red;
+    
+    }
+    
+    .vertical-switcher {
+      margin-top: 32px;
+    }
+    
+    .vertical-switcher {
+      display: flex;
+      margin-left: -16px;
+      margin-right: -16px;
+      list-style: none;
+      overflow-x: auto;
+    }
+    
+    #txtMainSearchBox {
+      height: 60px;
+      box-shadow: 0 2px 8px 0 rgb(0 0 0 / 20%);
+    }
+    
+    #txtMainSearchBox:focus {
+      outline: none;
+    }
+    
+    #imgDelivery {
+      background-image: url("../../img/restaurants.webp");
+    }
+    
+    #imgPickUp {
+      background-image: url("../../img/pickup.webp");
+    }
+    
+    #imgShop {
+      background-image: url("../../img/shops.webp");
+    }
+    
+    .box-flex {
+      margin-top: 20px;
+    }
+    
+    .vertical-switcher li {
+      flex: none;
+      width: 233px;
+      height: 60px;
+      position: relative;
+      margin-left: 24px;
+      background-position: 100%;
+      background-size: 60%;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      border-bottom: 3px solid #f16b2a;
+    }
+    
+    .vertical-switcher li button,
+    .vertical-switcher li:hover {
+      box-shadow: 0 2px 16px 0 rgb(0 0 0 / 12%);
+    }
+    
+    .vertical-switcher li.active button {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: none;
+    }
+    
+    .vertical-switcher li.active button {
+      color: black;
+      padding-bottom: 23px;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    
+    .vertical-switcher li button {
+      font-size: 1.6rem;
+      font-weight: 300;
+      text-align: left;
+      text-transform: none;
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding-top: calc(50px - 1.8rem);
+      line-height: 1.8rem;
+      padding-left: 16px;
+      color: #333;
+      background: rgba(51, 51, 51, 0.08);
+    }
+    
+    .orderWidget {
+      width: 600px;
+      height: 70px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      display: flex;
+      flex-direction: row;
+      border-radius: 2px;
+    }
+    
+    .widgetbox1 {
+      flex: 4;
+    
+      display: flex;
+    
+      flex-direction: column;
+      
+    }
+    
+    .widgetbox2 {
+      flex: 1;
+    }
+    
+    .orderWidget1 {
+      flex: 2;
+     
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .orderWidget2 {
+      flex: 1;
+      padding-left: 5px;
+    
+    }
+    
+    .orderWidget3 {
+      flex: 1;
+      
+    }
+     */

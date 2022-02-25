@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+[type="radio"]:checked + span::after,
+[type="radio"].with-gap:checked + span::before,
+[type="radio"].with-gap :checked + span::after {
+  border: 2px solid #f26c2a;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span::after {
+  background-color: #f26c2a;
+}
+.customOverlay {
+  background: rgba(36, 123, 160, 0.7);
+  z-index: 100;
+}
+.customModal {
+  background: #b2dbbf;
+  max-width: 500px;
+  width: 100%;
+}
+
+.react-responsive-modal-modal {
+  width: 35em !important;
+  padding: 0 !important;
+  margin-top: 3em !important;
+  margin-bottom: 3em !important;
+  min-height: 33em !important;
+  height: auto !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.react-responsive-modal-closeButton {
+  display: none !important;
+}
+
+.subMenu__closeBTN {
+  position: absolute;
+  top: -1em;
+  right: 1em;
+  /* border: 1px solid rgb(194, 117, 44); */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  color: #f26c2a;
+  cursor: pointer;
+}
+
+.submenu__mainPanel {
+  background-color: rgba(23, 23, 23, 0.394);
+  height: auto;
+  z-index: 100;
+  position: relative;
+  padding-bottom: 151px;
+  left: 0;
+  top: 0;
+}
+
+.subMenu__mainPanel {
+  /* height: auto; */
+
+  display: grid;
+  grid-template-columns: 100%;
+
+  /* grid-template-rows: 50% 40% 10%; */
+}
+
+.subMenu__headerImage {
+  height: 16em;
+}
+
+.subMenu__panel-one {
+  min-height: 17em;
+  padding-bottom: 5em;
+  margin-left: 12px;
+  margin-right: 12px;
+  /* border: 1px solid red; */
+}
+
+.submenu__restaurantName {
+  /* border: 1px solid red; */
+
+  margin-bottom: 15px;
+  padding-top: 15px;
+  border-bottom: 1px solid rgba(103, 103, 103, 0.245);
+}
+
+.submenu__restaurantName > p {
+  font-size: 26px;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+
+.item-list__options li {
+  margin-bottom: 20px;
+}
+
+.item-list__title > p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.option__radio {
+  /* font-size: 20px; */
+  width: 20px;
+  height: 20px;
+}
+.option__name {
+  font-size: 20px;
+  font-weight: 100;
+  padding-top: 7px;
+  text-transform: capitalize;
+}
+
+.listPanel {
+  margin-bottom: 2em;
+}
+.item-list__options {
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.list__view-more {
+  display: inline-block;
+  position: absolute;
+  left: 12px;
+  bottom: 0;
+  color: #f26d2ace;
+  font-weight: 100;
+  font-size: 17px;
+  /* border: 1px solid red; */
+  /* margin-top: 20px; */
+}
+
+.subMenu__panel-two {
+  height: 5em;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+
+  /* border: 1px solid rgb(0, 0, 0); */
+}
+
+.subMenu__addToCart {
+  background-color: #f26c2a;
+  color: white;
+  font-size: 20px;
+  width: 90%;
+  height: 70%;
+  margin: auto;
+  margin-top: 11px;
+  display: block;
+}

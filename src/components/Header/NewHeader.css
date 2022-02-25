@@ -1,0 +1,308 @@
+.header {
+  height: 96px;
+  box-shadow: 0 0 16px rgba(38, 38, 38, 0.16);
+  /* position: absolute; */
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: var(--white);
+  border: "none";
+  outline: none;
+}
+
+.gheader {
+  height: 80px;
+  box-shadow: 0 0 16px rgba(211, 210, 210, 0.16);
+  /* position: absolute; */
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  /* background: var(--black); */
+  background-color: transparent;
+  border: "none";
+  outline: none;
+}
+
+.header__fixed {
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
+  border: "none";
+  outline: none;
+}
+
+.bj {
+  z-index: 4;
+}
+
+.bi {
+  cursor: pointer;
+}
+.bh {
+  width: 24px;
+}
+.bg {
+  height: 24px;
+}
+.be {
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.bc {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+button {
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+.bn {
+  fill: currentColor;
+}
+.bm {
+  flex: none;
+  color: #f36c2a;
+}
+.bl {
+  height: 20px;
+}
+.bk {
+  width: 20px;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+.spacer._36 {
+  width: 36px;
+}
+
+.spacer._64 {
+  width: 64px;
+}
+.spacer._200 {
+  width: 200px;
+}
+.spacer._16 {
+  width: 16px;
+}
+
+.App {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+}
+
+.rec-carousel-item:focus {
+  outline: none;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+#App {
+  font-family: sans-serif;
+
+  /* Give app full page to work with */
+  height: 100vh;
+}
+
+#page-wrap {
+  text-align: center;
+
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
+}
+
+/* Individual item */
+
+.spacer._8 {
+  width: 8px;
+}
+
+/* Change color on hover */
+.bm-item:hover {
+  color: white;
+}
+.ggm {
+  vertical-align: middle;
+}
+
+/* The rest copied directly from react-burger-menu docs */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 26px;
+  height: 20px;
+  left: 36px;
+  top: 36px !important;
+  vertical-align: middle;
+}
+.buttong {
+  position: absolute;
+  width: 26px;
+  height: 20px;
+  left: 36px;
+  top: 36px;
+  vertical-align: middle;
+}
+button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+div:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: white;
+}
+
+.barsg {
+  background: white !important;
+}
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  display: none;
+  height: 240px;
+  width: 240px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  display: none !important;
+}
+
+.iw {
+  transform: translateX(0px);
+}
+.iu {
+  opacity: 1;
+}
+
+.c7 {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.c6 {
+  overflow-x: hidden;
+}
+.c5 {
+  overflow-y: auto;
+}
+.c4 {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+.c3 {
+  padding: 24px;
+}
+.c2 {
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+}
+.c1 {
+  width: 300px;
+}
+.c0 {
+  max-width: 80%;
+}
+.bz {
+  background-color: #ffffff;
+}
+.b8 {
+  box-sizing: border-box;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+div {
+  display: block;
+}
+.bd {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+}
+.ba {
+  color: #000000;
+}
+body {
+  background: #ffffff;
+  color: #000000;
+  font-family: UberMoveText-Regular, sans-serif;
+}
+
+/* General sidebar styles */
+/* .bm-menu {
+  background: white;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  position: relative;
+  top: 1em;
+  right: 0.5em;
+  /* display: none; */
+  /* box-shadow: 5px 10px #e4e4e4; */
+  /* box-shadow: -10px 0px 60px 0px rgba(170, 170, 170, 0.462); */
+} */
+
+.bm-item {
+  display: inline-block;
+  background-color: white !important;
+  /* Our sidebar item styling */
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #000000;
+  transition: color 0.2s;
+  margin-left: 14px;
+}
+
+@media screen and (max-width: 600px) {
+  /* .bm-menu {
+    top: -22px;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+  } */
+}

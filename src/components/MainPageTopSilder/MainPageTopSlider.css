@@ -1,0 +1,51 @@
+
+.MainContainer{
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.childContainer1{
+    height: auto;
+    flex: 1; 
+    background-color: #132328;
+}
+
+.childContainer2{
+    height: auto;
+    flex: 2;
+    display: flex;
+    width: 100%;
+    flex-direction:row ;
+    background-color: #f16b2a;
+}
+
+
+.childContainer1 h2,p{
+    color: white;
+}
+
+.SliderText{
+    border: 1px solid;
+    flex: 1;
+
+}
+
+.SliderImage{
+    /* border: 1px solid; */
+    flex: 2;
+    width: 100%;
+    height: auto;
+    background-color: #f16b2a;
+
+}
+
+.cimg{
+
+    height:50%;
+    width: 50%;
+    float: right;
+}
