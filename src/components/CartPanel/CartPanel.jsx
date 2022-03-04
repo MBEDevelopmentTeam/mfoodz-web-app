@@ -93,7 +93,7 @@ const CartPanel = (props) => {
     updatedStore.dispatch(finalOrderQueueTrue());
     // console.log("finalOrderQueueTrue");
   }
-
+  let subPrice = 0;
   return (
     <>
       <div
@@ -158,6 +158,7 @@ const CartPanel = (props) => {
               {DisplayOrderList != null
                 ? DisplayOrderList.map((val) => (
                     <>
+                      {window.console.log("val.submenu", val.submenu)}
                       <ul style={{}} className="orderBox">
                         <ul className="orderBox_inner1">
                           <li
@@ -172,6 +173,21 @@ const CartPanel = (props) => {
                           >
                             {val.Name}
                           </li>
+
+                          {val.submenu != undefined ? (
+                            <ul className="subMenu__listItems">
+                              {val.submenu.map((list) => {
+                                return (
+                                  <span className="subMenu__listItems-childs">
+                                    <li className="listItems-childOne">
+                                      {"+" + " " + list.itemName}
+                                    </li>
+                                    {/* <li className="listItems-childTwo">{list.itemPrice}</li> */}
+                                  </span>
+                                );
+                              })}
+                            </ul>
+                          ) : null}
                         </ul>
 
                         <ul className="orderBox_inner2">
@@ -221,6 +237,7 @@ const CartPanel = (props) => {
                   ))
                 : null}
             </Scrollbars>
+            {/* {(submenuitemprices = 0)} */}
             <Link
               to={
                 TotalBIll > 0

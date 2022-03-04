@@ -10,11 +10,8 @@ import ModalRest from "react-modal";
 // import Typography from "@material-ui/core/Typography";
 // import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 // import Checkbox from "@material-ui/core/Checkbox";
-import pizza_banner from "./Images/pizza_banner.jpg";
-// import pizza_banner2 from "./Images/pizza_banner2.jpg";
-import foodPlate from "./Images/food-plate.png";
-import restAddress from "./Images/restAddress.png";
-// import dishItemImage from "./Images/dish-item-image.jpg";
+// import ScrollMenu from "react-horizontal-scrolling-menu";
+// import ScrollContainer from "react-indiana-drag-scroll";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addtocart,
@@ -28,13 +25,9 @@ import { useEffect } from "react";
 import CartPanel from "../CartPanel/CartPanel";
 import { GetFinancialInfo } from "../Deliverypanel/Deliverypanel";
 import { getShopMenu, ShopSubMenu, GoogleKey } from "../AllApi";
-import pandaBannerImage from "./Images/bannerImage_panda.jpg";
 import { updatedStore } from "../../index";
-import defaultCard from "./Images/defaultCard.jpg";
 import $ from "jquery";
-// import ScrollContainer from "react-indiana-drag-scroll";
 import { itemAddedToCart } from "../Notifications";
-// import ScrollMenu from "react-horizontal-scrolling-menu";
 import {
   withScriptjs,
   withGoogleMap,
@@ -43,6 +36,12 @@ import {
 } from "react-google-maps";
 
 import SubMenuPanel from "./SubMenuPanel";
+
+import foodPlate from "./Images/food-plate.png";
+import restAddress from "./Images/restAddress.png";
+import pandaBannerImage from "./Images/bannerImage_panda.jpg";
+import defaultCard from "./Images/defaultCard.jpg";
+import { retaurantHeaderImage } from "../RestaurantCard/RestaurantCard";
 
 let ShopData = null;
 var ShopName2 = "";
@@ -262,7 +261,7 @@ const ProductsPage = (props) => {
           <RestaurantInfo />
         </ModalRest>
 
-        {/* <Modal                                          ******************** OLD SUBMENU PANEL ***********************************
+        {/* <Modal                                          ************************** OLD SUBMENU PANEL ***********************************
           style={{
             overlay: {
               backgroundColor: "rgba(23, 23, 23, 0.394)",
@@ -290,6 +289,7 @@ const ProductsPage = (props) => {
         <img
           className="banner_image"
           src={pandaBannerImage}
+          // src={retaurantHeaderImage}
           alt="PIZZA BANNER"
         />
 
@@ -453,70 +453,52 @@ export function FoodDishesPanel() {
   const dispatch = useDispatch();
   const [menuHead, setmenuHead] = useState([]);
 
-
-
-
-
-
-
   // /* FUNCTION WITH SUBMENU OPTIONS */ ##########################################################################################################
-  
-  // async function fn_AddItem(restData) {
-    //   // alert(JSON.stringify(restData));
 
-  //   subMenuCount = restData.SubMenuItemCount;
-  //   // console.log(restData);
-  //   console.log("restData");
+  async function fn_AddItem(restData) {
+    // alert(JSON.stringify(restData));
 
-  //   if (subMenuCount == null || subMenuCount == 0) {
-    //     Selectitem(restData);
-  //     itemAddedToCart();
-  
-  //     // Selectitem(restData);
-  //     // alert(subMenuCount);
-  //     // MenuItemList.push(restData);
-  //   } else {
-  //     subMenuObject = {
-  //       restName: restData.Name,
-  //       restImage: restData.ImageHeader,
-  //       menuItemId: restData.MenuId,
-  //       submenuId: restData.SubMenuId,
-  //     };
-  
-  //     dispatch(subMenu());
-  //     // alert(subMenuCount);
-  //     // itemAddedToCart();
-  //   }
-  // }
+    subMenuCount = restData.SubMenuItemCount;
+    // console.log(restData);
+    // console.log("restData");
+
+    if (subMenuCount == null || subMenuCount == 0) {
+      Selectitem(restData);
+      itemAddedToCart();
+
+      // Selectitem(restData);
+      // alert(subMenuCount);
+      // MenuItemList.push(restData);
+    } else {
+      baseMenuItems = restData;
+
+      subMenuObject = {
+        restName: restData.Name,
+        restImage: restData.ImageHeader,
+        currencyType: NewCountryCode,
+        menuItemId: restData.MenuId,
+        submenuId: restData.SubMenuId,
+      };
+
+      dispatch(subMenu());
+      // alert(subMenuCount);
+      // itemAddedToCart();
+    }
+  }
+
   // /* FUNCTION WITH SUBMENU OPTIONS */ ################################################################################################################
 
-
-
-
-
-
-
-  
-  // /* FUNCTION "WITHOUT" SUBMENU OPTIONS */ ############################################################################################################
-  
-  async function fn_AddItem(restData) {
-    subMenuCount = restData.SubMenuItemCount;
-    
-    Selectitem(restData);
-    itemAddedToCart();
-  }
   // /* FUNCTION "WITHOUT" SUBMENU OPTIONS */ ############################################################################################################
 
+  // async function fn_AddItem(restData) {
+  //   subMenuCount = restData.SubMenuItemCount;
 
+  //   Selectitem(restData);
+  //   itemAddedToCart();
+  // }
 
+  // /* FUNCTION "WITHOUT" SUBMENU OPTIONS */ ############################################################################################################
 
-
-
-
-
-
-
-  
   useEffect(() => {
     if (ShopData != null) {
       var MenuItemArray = ShopData.MenuCategory;
@@ -629,7 +611,7 @@ export const RestaurantInfo = (props) => {
             &#x2715;
           </button>
 
-          <img className="restInfo_headerImage" src={pizza_banner}></img>
+          <img className="restInfo_headerImage" src={pandaBannerImage}></img>
 
           <div className="restModal-1_inner1">
             <div className="restModal-1_inner1-section-1">
@@ -796,7 +778,9 @@ export const Review = (props) => {
   );
 };
 
-export function Selectitem(item) {
+export let baseMenuItems;
+
+export function Selectitem(item, subMenuList) {
   if (MenuRecord.length >= 1) {
     if (ResID != MenuRecord[0].ShopId) {
       MenuRecord = [];
@@ -807,18 +791,57 @@ export function Selectitem(item) {
   let Name = item.Name;
   let amount = item.BaseAmount;
   let count = 0;
-  var find = MenuRecord.findIndex((x) => x.MenuId == id);
+  var find = MenuRecord.filter((x) => x.MenuId == id);
   var findQuantity = 0;
 
-  if (find >= 0) {
-    findQuantity = MenuRecord[find].Quantity;
-    MenuRecord[find] = {
+  let QuantityAdded = false;
+  if (find.length > 0 && typeof subMenuList == "undefined") {
+    const FindedIndex = MenuRecord.findIndex((x) => x.MenuId == find[0].MenuId);
+    findQuantity = MenuRecord[FindedIndex].Quantity;
+    MenuRecord[FindedIndex] = {
       MenuId: id,
       Name: Name,
-      Quantity: findQuantity + 1,
+      Quantity: MenuRecord[FindedIndex].Quantity + 1,
       Price: amount,
       ShopId: ResID,
+      submenu: subMenuList,
     };
+    localStorage.setItem("CartArray1", JSON.stringify(MenuRecord)); //store
+  } else if (find.length > 0 && typeof subMenuList != "undefined") {
+    const SubMenuIdArray = subMenuList.map((val) => val.itemID);
+    // alert(SubMenuIdArray)
+
+    find.map((val) => {
+      let same = true;
+      val.submenu.map(({ itemID }, index) => {
+        if (!SubMenuIdArray.includes(itemID)) {
+          same = false;
+        }
+        if (val.submenu.length == index + 1) {
+          if (same) {
+            const FindedIndex = MenuRecord.findIndex(
+              (x) => x.MenuId == val.MenuId
+            );
+            MenuRecord[FindedIndex].Quantity =
+              MenuRecord[FindedIndex].Quantity + 1;
+            QuantityAdded = true;
+            localStorage.setItem("CartArray1", JSON.stringify(MenuRecord)); //store
+          } else {
+            if (!QuantityAdded) {
+              MenuRecord.push({
+                MenuId: id,
+                Name: Name,
+                Quantity: 1,
+                Price: amount,
+                ShopId: ResID,
+                submenu: subMenuList,
+              });
+              localStorage.setItem("CartArray1", JSON.stringify(MenuRecord)); //store
+            }
+          }
+        }
+      });
+    });
   } else {
     MenuRecord.push({
       MenuId: id,
@@ -826,6 +849,7 @@ export function Selectitem(item) {
       Quantity: 1,
       Price: amount,
       ShopId: ResID,
+      submenu: subMenuList,
     });
   }
 

@@ -9,26 +9,133 @@ import { updatedStore } from "../../index";
 import { subMenu } from "../../actions";
 
 import { ShopSubMenu } from "../AllApi";
-import { subMenuObject } from "./ProductsPage";
+import { baseMenuItems, subMenuObject, Selectitem } from "./ProductsPage";
+
+// let CC = localStorage.getItem("CountryCode");
+// console.log(CC);
+
+function closeSubmenuPanel() {
+  multipleItemArray = [];
+  singleItemArray = [];
+  radioBoxObject = {};
+  updatedStore.dispatch(subMenu());
+}
+
+let multipleItemArray = [];
+
+function handleCheckBox(id, name, price) {
+  var checkBoxObject = {};
+  if (multipleItemArray.length == 0) {
+    checkBoxObject = {};
+    checkBoxObject.itemID = id;
+    checkBoxObject.itemName = name;
+    checkBoxObject.itemPrice = price;
+    multipleItemArray.push(checkBoxObject);
+    // alert(JSON.stringify(multipleItemArray));
+  } else {
+    checkBoxObject = {};
+    var dontadd = 0;
+    for (let a = 0; a < multipleItemArray.length; a++) {
+      if (multipleItemArray[a].itemName == name) {
+        // alert(name);
+        multipleItemArray.splice(a, 1);
+        dontadd = 1;
+        break;
+      }
+    }
+    if (dontadd == 0) {
+      checkBoxObject = {};
+      checkBoxObject.itemID = id;
+      checkBoxObject.itemName = name;
+      checkBoxObject.itemPrice = price;
+      multipleItemArray.push(checkBoxObject);
+      // alert(JSON.stringify(multipleItemArray));
+    }
+  }
+}
+
+let singleItemArray = [];
+var radioBoxObject = {};
+
+function handleRadioBox(parentName, id, name, price) {
+  let newEntry = 1;
+  if (singleItemArray.length == 0) {
+    // alert("brand new object");
+    radioBoxObject[parentName] = {
+      itemID: id,
+      itemName: name,
+      itemPrice: price,
+    };
+
+    singleItemArray.push(radioBoxObject);
+ 
+    // alert("1" + JSON.stringify(singleItemArray));
+  } else {
+    for (let [key, value] of Object.entries(radioBoxObject)) {
+      if (key == parentName) {
+        radioBoxObject[key] = {
+          itemID: id,
+          itemName: name,
+          itemPrice: price,
+        };
+
+        newEntry = 0;
+        // alert("sameParent with different object");
+        // alert("2" + JSON.stringify(singleItemArray));
+        break;
+      }
+    }
+
+    if (newEntry == 1) {
+      // alert("different parent with new object");
+      radioBoxObject[parentName] = {
+        itemID: id,
+        itemName: name,
+        itemPrice: price,
+      };
+     
+      // alert("3" + JSON.stringify(singleItemArray));
+    }
+  }
+}
+
+function addSubMenuToCart() {
+  let allSubmenuItems = [];
+
+  if (multipleItemArray.length != 0) {
+    // alert(JSON.stringify(multipleItemArray));
+    allSubmenuItems = [...multipleItemArray];
+    multipleItemArray = [];
+  }
+
+  if (singleItemArray.length != 0) {
+    singleItemArray = [];
+    for (let i in radioBoxObject) {
+      singleItemArray.push({
+        itemID: radioBoxObject[i].itemID,
+        itemName: radioBoxObject[i].itemName,
+        itemPrice: radioBoxObject[i].itemPrice,
+      });
+    }
+
+    allSubmenuItems = [...singleItemArray];
+    singleItemArray = [];
+    radioBoxObject = {};
+    // alert(JSON.stringify(singleItemArray));
+    // alert(JSON.stringify(singleItemArray));
+  }
+  Selectitem(baseMenuItems, allSubmenuItems);
+
+  // alert(JSON.stringify(allSubmenuItems));
+  allSubmenuItems = null;
+  updatedStore.dispatch(subMenu());
+}
 
 class SubMenuPanel extends React.PureComponent {
   constructor() {
     super();
 
     this.state = {
-      // open: false,
-      // drinks: [
-      //   "pepsi",
-      //   "dew",
-      //   "fanta",
-      //   "sting",
-      //   "coke",
-      //   "mirinda",
-      //   "barbican",
-      //   "malt",
-      //   "pakola",
-      // ],
-      // meats: ["roasted", "not roasted", "spicy", "backed", "chilli one"],
       subMenuItems: [],
     };
   }
@@ -53,15 +160,11 @@ class SubMenuPanel extends React.PureComponent {
         subMenuItems: SubMenuTitleList.ShopSubMenu[0].SubMenu,
       });
 
-      // console.log(this.state.subMenuItems);
+      // console.log(this.state.subMenuItems); //////this console is for category of names submenu items
     } catch (err) {
       console.log(err);
     }
   };
-
-  // componentDidMount() {
-  //   // alert("mount");
-  // }
 
   render() {
     this.getSubMenuItems(subMenuObject.menuItemId, subMenuObject.submenuId);
@@ -83,7 +186,7 @@ class SubMenuPanel extends React.PureComponent {
           <button
             onClick={() => {
               // this.setState({ open: false });
-              updatedStore.dispatch(subMenu());
+              closeSubmenuPanel();
             }}
             className="subMenu__closeBTN"
           >
@@ -94,7 +197,6 @@ class SubMenuPanel extends React.PureComponent {
             <div className="subMenu__headerImage">
               <img
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                // src={require("./Images/bannerImage_panda.jpg")}
                 src={subMenuObject.restImage}
               />
             </div>
@@ -107,18 +209,24 @@ class SubMenuPanel extends React.PureComponent {
               {this.state.subMenuItems.map((value) => {
                 return (
                   <MenuItemList
-                    tilte={value.Name}
+                    title={value.Name}
+                    description={value.Description}
                     menuID={value.MenuId}
                     submenuID={value.SubMenuId}
-                    selectionType={1}
-                    // options={this.state.meats}
                   />
                 );
               })}
             </div>
 
             <div className="subMenu__panel-two">
-              <button className="subMenu__addToCart">Add to Cart</button>
+              <button
+                className="subMenu__addToCart"
+                onClick={() => {
+                  addSubMenuToCart();
+                }}
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         </Modal>
@@ -141,15 +249,14 @@ class MenuItemList extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      listItems: 5,
+      listItems: 100,
       submenulist: [],
+      selectorType: null,
+      selectorNumber: null,
     };
   }
 
   async getSubMenuLists(menuid, submenuid) {
-    // console.log("id's");
-    // console.log(menuid);
-    // console.log(submenuid);
     var SubMenuURL = `${ShopSubMenu}?MenuId=${menuid}&SubMenuId=${submenuid}`;
 
     let submenudata;
@@ -167,10 +274,9 @@ class MenuItemList extends React.PureComponent {
 
       this.setState({
         submenulist: SubMenuTitleList.ShopSubMenu[0].SubMenu,
+        // selectorType: SubMenuTitleList.ShopSubMenu[0].SelectorType,
+        selectorNumber: SubMenuTitleList.ShopSubMenu[0].SelectorNumber,
       });
-
-      // console.log("submenulists");
-      console.log(this.state.submenulist);
     } catch (err) {
       console.log(err);
     }
@@ -182,20 +288,37 @@ class MenuItemList extends React.PureComponent {
       <>
         <div className="item-list__Box">
           <div className="item-list__title">
-            <p>{this.props.tilte}</p>
+            <p>{this.props.title}</p>
+            <h6>
+              {this.state.selectorNumber < 1
+                ? "Optional"
+                : " (" + this.state.selectorNumber + ") " + "Required"}
+            </h6>
           </div>
 
           <div className="item-list__options">
             <ul className="listPanel">
-              {this.state.submenulist.map((list) => {
-                return <SubMenuList title={"list.Name"} />;
-              })}
+              <SubMenuList
+                submenuSublist={this.state.submenulist}
+                // selectorType={this.state.selectorType}
+                selectorNumber={this.state.selectorNumber}
+                parentName={this.props.title}
+                listItemLimit={this.state.listItems}
+              />
             </ul>
 
-            <span className="list__view-more">
-              <i class="fas fa-angle-down"></i>
-              View More
-            </span>
+            {this.state.submenulist.length > this.state.listItems ? (
+              <span
+                className="list__view-more"
+                onClick={() => {
+                  this.setState({
+                    listItems: 100,
+                  });
+                }}
+              >
+                View More
+              </span>
+            ) : null}
           </div>
         </div>
       </>
@@ -203,8 +326,7 @@ class MenuItemList extends React.PureComponent {
   }
 }
 
-//selectionType
-//title
+
 
 class SubMenuList extends React.PureComponent {
   constructor() {
@@ -214,48 +336,100 @@ class SubMenuList extends React.PureComponent {
   }
 
   render() {
+    let options = this.props.submenuSublist;
+
+  
+
+    let selectorNumber = this.props.selectorNumber;
+
+    // console.log(options); // this console is for list of list of category item in submneu
+
     return (
       <>
-        <li
-          style={{
-            display: "grid",
-            gridTemplateColumns: "40px auto",
-          }}
-        >
-          {this.props.selectionType == 1 ? (
-            <span
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <input
-                className="option__radio"
-                type="radio"
-                name={this.props.title}
-              />
-            </span>
-          ) : null}
+        {options.splice(0, this.props.listItemLimit).map((subItem) => {
+          return (
+            <>
+              <li
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "40px auto",
+                }}
+              >
+                {/* RADIO BOX CONDITION STARTS FROM HERE */}
 
-          {this.props.selectionType == 2 ? (
-            <span
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <input
-                className="option__radio"
-                type="checkbox"
-                name={this.props.title}
-              />
-            </span>
-          ) : null}
+                {selectorNumber <= 1 ? (
+                  <>
+                    <span
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <input
+                        className="option__radio"
+                        type="radio"
+                        name={this.props.parentName}
+                        onClick={() => {
+                          handleRadioBox(
+                            this.props.parentName,
+                            subItem.SubMenuId,
+                            subItem.Name,
+                            subItem.Amount,
+                            selectorNumber
+                          );
+                        }}
+                      />
+                    </span>
 
-          {/* <label className="option__name">{item}</label> */}
-        </li>
+                    <div className="subItem_details">
+                      <label className="option__name">{subItem.Name}</label>
+                      <label className="option__name">
+                        {subMenuObject.currencyType + "." + subItem.Amount}
+                      </label>
+                    </div>
+                  </>
+                ) : null}
+
+                {/* CHECKBOX CONDITION STARTS FROM HERE */}
+
+                {selectorNumber > 1 ? (
+                  <>
+                    <span
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <input
+                        className="option__radio"
+                        type="checkbox"
+                        id={subItem.Name}
+                        value={subItem.Name}
+                        onClick={() => {
+                          handleCheckBox(
+                            subItem.SubMenuId,
+                            subItem.Name,
+                            subItem.Amount,
+                            selectorNumber
+                          );
+                        }}
+                      />
+                    </span>
+
+                    <div className="subItem_details">
+                      <label className="option__name">{subItem.Name}</label>
+                      <label className="option__name">
+                        {subMenuObject.currencyType + "." + subItem.Amount}
+                      </label>
+                    </div>
+                  </>
+                ) : null}
+              </li>
+            </>
+          );
+        })}
       </>
     );
   }

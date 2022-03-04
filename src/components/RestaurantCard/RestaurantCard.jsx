@@ -5,6 +5,9 @@ import test from "./heart.png";
 import background from "../../img/rest-img.png";
 import defaultcard from "./defaultCard.jpg";
 
+
+export let retaurantHeaderImage;
+
 let ShopID = null;
 export function RestaurantCard(props) {
   function onPageClick() {
@@ -39,6 +42,8 @@ export function RestaurantCard(props) {
   }
 
   var bg = props.ShopImage;
+
+  retaurantHeaderImage = bg != null ? bg : defaultcard;
   // if (bg == null) {
   //   // bg = 'https://register.m-rides.com/images/test-foodz.jpg';
   //   bg = defaultcard;

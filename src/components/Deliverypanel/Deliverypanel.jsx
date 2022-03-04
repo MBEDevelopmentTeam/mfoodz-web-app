@@ -1,7 +1,7 @@
 import "./Deliverypanel.css";
 
 import { TextField, Button } from "@material-ui/core";
-import Switch from "@material-ui/core/Switch";
+// import Switch from "@material-ui/core/Switch";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
@@ -33,7 +33,7 @@ import {
   getallshopswithradius,
 } from "../AllApi";
 import { updatedStore } from "../..";
-import { BorderTop } from "@material-ui/icons";
+// import { BorderTop } from "@material-ui/icons";
 
 let OrderDetailJson = [];
 let Data = [];
@@ -427,63 +427,6 @@ function Deliverypanel() {
     <div className="dcontainer">
       <div className="userpanel">
         <div className="deliverydetailes">
-          {/* Delivery Details ****************************/}
-          {/* 
-
-          <div className="dbox1">
-            <Numberbox number="0" />
-            <Paneltitle panelname="Delivery Details" />
-          </div> */}
-
-          {/* CONTACTLESS DELIVERY RADIO PANEL *****************/}
-
-          {/* <div
-            className="dbox2"
-            style={{ display: "flex", flexDirection: "row" }}
-          >
-            <div className="innerdbox2" style={{ flex: "10" }}>
-              <h4>Contactless delivery</h4>
-              <p>To Keep you safe, the rider will place your at door.</p>
-            </div>
-
-            <div style={{ flex: "1", marginTop: "12px", marginLeft: "20px" }}>
-              <Switch
-                color="primary"
-                name="checkedB"
-                inputProps={{ "aria-label": "primary checkbox" }}
-              />
-            </div>
-          </div> */}
-
-          {/* DELIVERY TIME PANEL **************************/}
-
-          {/* <div className="deliverytime">
-            <h5 style={{ fontFamily: "Poppins-Bold", fontSize: "1rem" }}>
-              Delivery Time
-            </h5>
-
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <div
-                style={{ flex: "1", fontFamily: "Poppins-Bold" }}
-                className="timeDrop1"
-              >
-                <select className="customDropDown">
-                  <option value="">{DateToday}</option>
-                </select>
-              </div>
-
-              <div
-                style={{ flex: "1", fontFamily: "Poppins-Bold" }}
-                className="timeDrop2"
-              >
-                <select className="customDropDown">
-                  <option value="">ASAP</option>
-                </select>
-              </div>
-            </div>
-          </div> */}
-
-          {/* -----Delivery Address Panel Start---- */}
           <div
             className="paymentpanel"
             style={{
@@ -864,6 +807,7 @@ function Deliverypanel() {
                     x
                     itemname={val.Name}
                     itemprice={val.Price * val.Quantity}
+                    submenulist={val.submenu}
                   />
                 );
               })
@@ -871,17 +815,6 @@ function Deliverypanel() {
         </div>
 
         <div>
-          {/* <p
-              style={{
-                marginLeft: "5%",
-                marginTop: "0%",
-                color: "#ef7137",
-                cursor: "pointer",
-                fontFamily: "Poppins-Regular",
-              }}
-            >
-              Festive Deals
-            </p> */}
           <hr
             style={{
               width: "90%",
@@ -1135,40 +1068,6 @@ export function DeliveryAddress(props) {
   );
 }
 
-// export function PersonalDetails(props) {
-//   const dispatch = useDispatch();
-
-//   return (
-//     <div
-//       className="finalPersonalDetails"
-//       style={{ display: "flex", flexDirection: "row", marginLeft: "4%" }}
-//     >
-//       <div style={{ flex: "1" }}>
-//         <h4 style={{ fontSize: "1.6em" }}>Full Name </h4>
-//         <p style={{ fontSize: "1em", color: "gray" }}>Atif Hyder</p>
-
-//         <h4 style={{ fontSize: "1.6em" }}>Email</h4>
-//         <p style={{ fontSize: "1em", color: "gray" }}>atifhm297@gmail.com</p>
-
-//         <h4 style={{ fontSize: "1.6em" }}>Mobile Number</h4>
-//         <p style={{ fontSize: "1em", color: "gray" }}>0333XXXXXXXX</p>
-//       </div>
-
-//       <div style={{ marginLeft: "1%", marginTop: "32%", marginRight: "5%" }}>
-//         <Button
-//           onClick={() => dispatch(personalDetails())}
-//           style={{ borderColor: "#F26C2A", color: "#F26C2A" }}
-//           variant="outlined"
-//           color="primary"
-//           href="#outlined-buttons"
-//         >
-//           Edit
-//         </Button>
-//       </div>
-//     </div>
-//   );
-// }
-
 export const OrderItemPanel = (props) => {
   return (
     <div className="rsection2">
@@ -1191,6 +1090,19 @@ export const OrderItemPanel = (props) => {
         >
           {props.itemname}
         </p>
+
+        <ul className="submenu-list">
+          {props.submenulist != undefined
+            ? props.submenulist.map((value) => {
+                return (
+                  <span className="submenu-innerList">
+                    <li className="submenu-listOne">{"+ " + value.itemName}</li>
+                    {/* <li className="submenu-listTwo">{value.itemPrice}</li> */}
+                  </span>
+                );
+              })
+            : null}
+        </ul>
       </div>
 
       <div className="r2sub3">

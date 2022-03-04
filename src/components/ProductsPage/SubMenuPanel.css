@@ -50,6 +50,7 @@
   background-color: white;
   color: #f26c2a;
   cursor: pointer;
+  border: 1.5px solid #f26c2a;
 }
 
 .submenu__mainPanel {
@@ -101,21 +102,49 @@
   margin-bottom: 20px;
 }
 
+.item-list__title {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
 .item-list__title > p {
   font-size: 20px;
   font-weight: 700;
 }
 
+.item-list__title > h6 {
+  position: absolute;
+  right: 10px;
+  color: lightsalmon;
+  font-weight: 100;
+}
+
 .option__radio {
-  /* font-size: 20px; */
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
+
+.subItem_details {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid red; */
+}
+
 .option__name {
   font-size: 20px;
   font-weight: 100;
   padding-top: 7px;
   text-transform: capitalize;
+}
+
+.option__name:nth-child(2) {
+  position: absolute;
+  right: 10px;
+  color: black;
+  font-weight: 300;
 }
 
 .listPanel {
@@ -135,8 +164,7 @@
   color: #f26d2ace;
   font-weight: 100;
   font-size: 17px;
-  /* border: 1px solid red; */
-  /* margin-top: 20px; */
+  cursor: pointer;
 }
 
 .subMenu__panel-two {

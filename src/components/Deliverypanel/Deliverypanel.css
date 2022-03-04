@@ -92,7 +92,7 @@
 }
 
 .r2sub3 p {
-  margin-left: 30px;
+  margin-left: -10px;
   margin-top: 13px;
   color: black;
   font-weight: 600;
@@ -265,6 +265,33 @@
 
 .ordereditems {
   font-weight: 500;
+}
+
+.submenu-list {
+  width: 12em;
+  margin-left: 20px;
+  /* border: 1px solid red; */
+}
+
+.submenu-innerList {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  /* border: 1px solid rgb(215, 87, 18); */
+}
+
+.submenu-listOne {
+  /* border: 1px solid black; */
+  margin: 0;
+  padding: 0;
+}
+
+.submenu-listTwo {
+  position: absolute;
+  right: 0;
+  /* border: 1px solid black; */
+  margin: 0;
+  padding: 0;
 }
 
 .finaladdress {
