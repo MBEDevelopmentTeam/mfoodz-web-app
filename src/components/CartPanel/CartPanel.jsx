@@ -156,9 +156,9 @@ const CartPanel = (props) => {
           <div className="cart3">
             <Scrollbars style={{ height: 200 }}>
               {DisplayOrderList != null
-                ? DisplayOrderList.map((val) => (
+                ? DisplayOrderList.map((val, menuIndex) => (
                     <>
-                      {window.console.log("val.submenu", val.submenu)}
+                      {/* {window.console.log("SubMenu_Object", val.submenu)} */}
                       <ul style={{}} className="orderBox">
                         <ul className="orderBox_inner1">
                           <li
@@ -195,14 +195,22 @@ const CartPanel = (props) => {
                             style={{ marginBottom: "10px" }}
                             className="itemTotalPriceLink"
                           >
-                            {NewCountryCode}. {val.Quantity * val.Price}
+                            {/* {val.submenu != undefined
+                              ? val.submenu.map((sitem, index) => {
+                                  subPrice += sitem.itemPrice;
+                                  TotalBIll += sitem.itemPrice;
+                                  window.console.log("total price", subPrice);
+                                })
+                              : null} */}
+                            {NewCountryCode}
+                            {val.Quantity * val.Price}
                           </li>
 
                           <ul className="addRemoveItembtn">
                             <li
                               className="addRemoveItembtn_one"
                               onClick={() => {
-                                fn_RemoveItem(val);
+                                fn_RemoveItem(val, menuIndex);
                                 forceUpdate();
                                 dispatch(deletefromcart());
                               }}
@@ -223,7 +231,7 @@ const CartPanel = (props) => {
                             <li
                               className="addRemoveItembtn_three"
                               onClick={() => {
-                                fn_AddItem(val);
+                                fn_AddItem(val, menuIndex);
                                 forceUpdate();
                                 dispatch(addtocart());
                               }}
@@ -267,10 +275,10 @@ const CartPanel = (props) => {
   );
 };
 
-function fn_RemoveItem(id) {
+function fn_RemoveItem(id, menuIndex) {
   let MinusBill = 0;
   let Mid = id.MenuId;
-  var find = DisplayOrderList.findIndex((x) => x.MenuId == Mid);
+  var find = menuIndex;
   var findQuantity = 0;
 
   if (find >= 0) {
@@ -285,9 +293,9 @@ function fn_RemoveItem(id) {
   }
 }
 
-function fn_AddItem(id) {
+function fn_AddItem(id, menuIndex) {
   let Mid = id.MenuId;
-  var find = DisplayOrderList.findIndex((x) => x.MenuId == Mid);
+  var find = menuIndex;
   var findQuantity = 0;
 
   if (find >= 0) {

@@ -22,7 +22,7 @@ export default class Login extends Component {
       email: "",
       password: "",
       loginErrors: "",
-      countryCode: "+92",
+      countryCode: "+1",
       msg: "",
       black: true,
       color: true,
@@ -103,6 +103,7 @@ export default class Login extends Component {
     const { email, countryCode } = this.state;
 
     if (email.length == 10) {
+      // alert(countryCode);
       const url = `${OTPVerification}`; // site that doesn’t send Access-Control-*
       var querystring = require("querystring");
       axios

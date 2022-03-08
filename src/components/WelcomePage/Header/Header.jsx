@@ -11,16 +11,16 @@ let time = today.getHours();
 let greetings = "Morning";
 let nightGreetings = false;
 
-if (time > 5 && time < 11) {
-  greetings = "Morning";
-} else if (time > 11) {
-  greetings = "Afternoon";
-} else if (time > 16 || time < 22) {
-  greetings = "Evening";
-} else if (time < 5 || time > 22) {
-  nightGreetings = true;
-  greetings = "Mid Night Owl...";
-}
+// if (time > 5 && time < 11) {
+//   greetings = "Morning";
+// } else if (time > 11) {
+//   greetings = "Afternoon";
+// } else if (time > 16 || time < 22) {
+//   greetings = "Evening";
+// } else if (time < 5 || time > 22) {
+//   nightGreetings = true;
+//   greetings = "Mid Night Owl...";
+// }
 
 // console.log(time);
 // console.log(greetings);

@@ -464,7 +464,7 @@ export function FoodDishesPanel() {
 
     if (subMenuCount == null || subMenuCount == 0) {
       Selectitem(restData);
-      itemAddedToCart();
+      // itemAddedToCart();
 
       // Selectitem(restData);
       // alert(subMenuCount);
@@ -781,15 +781,29 @@ export const Review = (props) => {
 export let baseMenuItems;
 
 export function Selectitem(item, subMenuList) {
+  let amount;
+  let SubMenuPrice;
   if (MenuRecord.length >= 1) {
     if (ResID != MenuRecord[0].ShopId) {
       MenuRecord = [];
     }
   }
 
+  if (subMenuList != undefined) {
+    SubMenuPrice = 0;
+    subMenuList.map((val) => {
+      SubMenuPrice = SubMenuPrice + val.itemPrice;
+    });
+  }
+
+  // alert(JSON.stringify(subMenuList))
   let id = item.MenuId;
   let Name = item.Name;
-  let amount = item.BaseAmount;
+  if (subMenuList != undefined) {
+    amount = item.BaseAmount + SubMenuPrice;
+  } else {
+    amount = item.BaseAmount;
+  }
   let count = 0;
   var find = MenuRecord.filter((x) => x.MenuId == id);
   var findQuantity = 0;
@@ -809,8 +823,6 @@ export function Selectitem(item, subMenuList) {
     localStorage.setItem("CartArray1", JSON.stringify(MenuRecord)); //store
   } else if (find.length > 0 && typeof subMenuList != "undefined") {
     const SubMenuIdArray = subMenuList.map((val) => val.itemID);
-    // alert(SubMenuIdArray)
-
     find.map((val) => {
       let same = true;
       val.submenu.map(({ itemID }, index) => {

@@ -164,13 +164,27 @@ function Deliverypanel() {
 
     setDateToday(dateStr);
     OrderDetailJson = [];
+
     StoredMenuRecord.map((val) => {
-      OrderDetailJson.push({
-        MenuId: val.MenuId,
-        Name: val.Name,
-        Quantity: val.Quantity,
-        Price: val.Price,
-      });
+      if (val.submenu != undefined) {
+        OrderDetailJson.push({
+          MenuId: val.MenuId,
+          Name: val.Name,
+          Quantity: val.Quantity,
+          Price: val.Price,
+          SubMenuId: val.submenu.itemID,
+          IsParent: val.submenu.itemIsParent,
+          ParentId: val.submenu.itemID,
+        });
+      } else {
+        OrderDetailJson.push({
+          MenuId: val.MenuId,
+          Name: val.Name,
+          Quantity: val.Quantity,
+          Price: val.Price,
+        });
+      }
+
       Bill += val.Price * val.Quantity;
 
       if (gst == 0 || gst == undefined) {
@@ -281,7 +295,7 @@ function Deliverypanel() {
       CardNumber: CardNumber,
       ExpiryDate: MMYY,
       CVV: CVV,
-      CardType: "master",
+      CardType: "visa",
       CardHolderName: CardName,
     };
 
@@ -300,6 +314,10 @@ function Deliverypanel() {
         var responseJson = json.Result;
         var Code1 = responseJson.Code;
         var Message = responseJson.Message;
+        console.log("card response");
+        console.log(responseJson);
+        console.log(Code1);
+        console.log(Message);
         if (Code1 == "00") {
           notifySuccess(Message);
         } else {

@@ -26,6 +26,7 @@ export default class Otp extends Component {
   }
 
   componentDidMount() {
+  
     this.setState({
       resend: (
         <a href={""} class="_q _r" onClick={this.handleClick}>
@@ -119,22 +120,14 @@ export default class Otp extends Component {
         localStorage.setItem("OTPStatus", true);
 
         this.handleURL("/passwords");
-     
       } else if (masterCode == "02") {
-       
-
         this.handleURL("/name");
-      
       } else if (masterCode == "01") {
-        
         localStorage.setItem("UserStatus", true);
-        
 
         this.handleURL("/");
-        
       }
     } else {
-      
       this.setState({ welResendOTP: "" });
       this.setState({ test: "Incorrect OTP " });
       this.setState({
@@ -218,7 +211,6 @@ export default class Otp extends Component {
                               placeholder="000000"
                               value={this.state.email}
                               onChange={this.handleChange}
-                            
                               required
                               class="_c7 _c7 _c8 _a _b _d _k _l _c9 _ap _ca _cb _cc _cd _ce _cf _cg _ch _ci _cj _ck _cl _dm _ar _cm"
                               style={{ borderRadius: "50px" }}

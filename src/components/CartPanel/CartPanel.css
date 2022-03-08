@@ -110,7 +110,7 @@
 .subMenu__listItems {
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 .subMenu__listItems-childs {

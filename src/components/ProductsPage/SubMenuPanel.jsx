@@ -23,13 +23,24 @@ function closeSubmenuPanel() {
 
 let multipleItemArray = [];
 
-function handleCheckBox(id, name, price) {
+function handleCheckBox(
+  parentName,
+  submenuid,
+  name,
+  amount,
+  isparent,
+  MenuId,
+  selectornumber
+) {
   var checkBoxObject = {};
   if (multipleItemArray.length == 0) {
     checkBoxObject = {};
-    checkBoxObject.itemID = id;
+    checkBoxObject.itemID = submenuid;
     checkBoxObject.itemName = name;
-    checkBoxObject.itemPrice = price;
+    checkBoxObject.itemPrice = amount;
+    checkBoxObject.itemIsParent = isparent;
+    checkBoxObject.itemSelectorNumber = selectornumber;
+
     multipleItemArray.push(checkBoxObject);
     // alert(JSON.stringify(multipleItemArray));
   } else {
@@ -45,9 +56,11 @@ function handleCheckBox(id, name, price) {
     }
     if (dontadd == 0) {
       checkBoxObject = {};
-      checkBoxObject.itemID = id;
+      checkBoxObject.itemID = submenuid;
       checkBoxObject.itemName = name;
-      checkBoxObject.itemPrice = price;
+      checkBoxObject.itemPrice = amount;
+      checkBoxObject.itemIsParent = isparent;
+      checkBoxObject.itemSelectorNumber = selectornumber;
       multipleItemArray.push(checkBoxObject);
       // alert(JSON.stringify(multipleItemArray));
     }
@@ -57,26 +70,38 @@ function handleCheckBox(id, name, price) {
 let singleItemArray = [];
 var radioBoxObject = {};
 
-function handleRadioBox(parentName, id, name, price) {
+function handleRadioBox(
+  parentName,
+  submenuid,
+  name,
+  amount,
+  isparent,
+  MenuId,
+  selectornumber
+) {
   let newEntry = 1;
   if (singleItemArray.length == 0) {
     // alert("brand new object");
     radioBoxObject[parentName] = {
-      itemID: id,
+      itemID: submenuid,
       itemName: name,
-      itemPrice: price,
+      itemPrice: amount,
+      itemIsParent: isparent,
+      itemSelectorNumber: selectornumber,
     };
 
     singleItemArray.push(radioBoxObject);
- 
+
     // alert("1" + JSON.stringify(singleItemArray));
   } else {
     for (let [key, value] of Object.entries(radioBoxObject)) {
       if (key == parentName) {
         radioBoxObject[key] = {
-          itemID: id,
+          itemID: submenuid,
           itemName: name,
-          itemPrice: price,
+          itemPrice: amount,
+          itemIsParent: isparent,
+          itemSelectorNumber: selectornumber,
         };
 
         newEntry = 0;
@@ -89,11 +114,13 @@ function handleRadioBox(parentName, id, name, price) {
     if (newEntry == 1) {
       // alert("different parent with new object");
       radioBoxObject[parentName] = {
-        itemID: id,
+        itemID: submenuid,
         itemName: name,
-        itemPrice: price,
+        itemPrice: amount,
+        itemIsParent: isparent,
+        itemSelectorNumber: selectornumber,
       };
-     
+
       // alert("3" + JSON.stringify(singleItemArray));
     }
   }
@@ -115,6 +142,8 @@ function addSubMenuToCart() {
         itemID: radioBoxObject[i].itemID,
         itemName: radioBoxObject[i].itemName,
         itemPrice: radioBoxObject[i].itemPrice,
+        itemIsParent: radioBoxObject[i].itemIsParent,
+        itemSelectorNumber: radioBoxObject[i].itemSelectorNumber,
       });
     }
 
@@ -284,16 +313,17 @@ class MenuItemList extends React.PureComponent {
 
   render() {
     this.getSubMenuLists(this.props.menuID, this.props.submenuID);
+    // console.log("this is menu item list!");
     return (
       <>
         <div className="item-list__Box">
           <div className="item-list__title">
             <p>{this.props.title}</p>
-            <h6>
+            {/* <h6>
               {this.state.selectorNumber < 1
                 ? "Optional"
                 : " (" + this.state.selectorNumber + ") " + "Required"}
-            </h6>
+            </h6> */}
           </div>
 
           <div className="item-list__options">
@@ -326,8 +356,6 @@ class MenuItemList extends React.PureComponent {
   }
 }
 
-
-
 class SubMenuList extends React.PureComponent {
   constructor() {
     super();
@@ -335,10 +363,12 @@ class SubMenuList extends React.PureComponent {
     this.state = {};
   }
 
+  firstSelect = 0;
   render() {
+    // var allRadios = document.querySelectorAll(
+    //   `input[name="${this.props.parentName}"]`
+    // );
     let options = this.props.submenuSublist;
-
-  
 
     let selectorNumber = this.props.selectorNumber;
 
@@ -346,7 +376,28 @@ class SubMenuList extends React.PureComponent {
 
     return (
       <>
-        {options.splice(0, this.props.listItemLimit).map((subItem) => {
+        {options.splice(0, this.props.listItemLimit).map((subItem, index) => {
+          // window.console.log("index");
+          // window.console.log(index);
+
+          if (this.firstSelect == 0) {
+            if (index === 0) {
+              handleRadioBox(
+                this.props.parentName,
+                subItem.SubMenuId,
+                subItem.Name,
+                subItem.Amount,
+                subItem.IsParent,
+                subItem.MenuId,
+                selectorNumber
+              );
+              this.firstSelect = 1;
+              // allRadios[index].checked = true;
+              // let radio0 = document.querySelector(".option__radio");
+              // radio0.checked = true;
+            }
+          }
+
           return (
             <>
               <li
@@ -376,6 +427,8 @@ class SubMenuList extends React.PureComponent {
                             subItem.SubMenuId,
                             subItem.Name,
                             subItem.Amount,
+                            subItem.IsParent,
+                            subItem.MenuId,
                             selectorNumber
                           );
                         }}
@@ -409,9 +462,12 @@ class SubMenuList extends React.PureComponent {
                         value={subItem.Name}
                         onClick={() => {
                           handleCheckBox(
+                            this.props.parentName,
                             subItem.SubMenuId,
                             subItem.Name,
                             subItem.Amount,
+                            subItem.IsParent,
+                            subItem.MenuId,
                             selectorNumber
                           );
                         }}
@@ -429,6 +485,10 @@ class SubMenuList extends React.PureComponent {
               </li>
             </>
           );
+
+
+
+          
         })}
       </>
     );

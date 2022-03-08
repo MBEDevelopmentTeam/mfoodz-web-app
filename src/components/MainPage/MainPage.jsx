@@ -38,14 +38,17 @@ let SearchLat = null;
 let SearchLong = null;
 let queryArray = [];
 let CountryCode = localStorage.getItem("CountryCode");
+// alert(CountryCode);
 var Lat = localStorage.getItem("lat", Lat);
 var Long = localStorage.getItem("lng", Long);
 
-if ((CountryCode = "PK")) {
-  CountryCode = "92";
-} else {
-  CountryCode = "1";
-}
+// if ((CountryCode = "PK")) {
+//   CountryCode = "92";
+// } else if ((CountryCode = "CA")) {
+//   CountryCode = "1";
+// } else {
+//   alert("Please Select right Country!");
+// }
 
 export function Toolbar(props) {
   updatedStore.dispatch(addtocart());

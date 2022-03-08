@@ -29,6 +29,11 @@ export default class Passwords extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // componentDidMount() {
+  //   let cc = localStorage.getItem("CountryCode");
+  //   alert(cc);
+  // }
+
   handlePasswordURL = () => {
     localStorage.setItem("UserStatus", true);
     this.handleURL("/");
